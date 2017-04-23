@@ -27,7 +27,7 @@ $password1=$_GET['txtpassword'];
     
     $result=mysql_query($query,$connection);
 
-
+}
     if(!$result)
     {
         echo "insertion failed";
@@ -37,7 +37,7 @@ $password1=$_GET['txtpassword'];
         echo "inserted successfully";
     }
     mysql_close($connection);
-}
+
 }
 ?>
 <html>
