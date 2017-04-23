@@ -35,6 +35,8 @@ else
     }
     mysql_close($connection);
 }
-
-
 ?>
+<html>
+  <head><title>Student Info</title></head>
+     	<a href="/fetch.php">fetch Page</a></br>
+  </html>
