@@ -20,13 +20,9 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    session_start();
-
-    $query="insert into reg values('$name','$email','$phone','$rfid','$password1')";
-    
-    $result=mysql_query($query,$connection);
-
-    if(!$result)
+   	$query="insert into reg values('$name','$email','$phone','$rfid','$password1')";
+   	$result=mysql_query($query,$connection);
+	if(!$result)
     {
         echo "insertion failed";
     }
