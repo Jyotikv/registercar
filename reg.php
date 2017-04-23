@@ -4,7 +4,7 @@ $name=$_REQUEST['txtFullname'];
 $email=$_REQUEST['txtemail'];
 $phone=$_REQUEST['txtphone'];
 $rfid=$_REQUEST['txtrfid'];
-$Password=$_REQUEST['txtpassword'];
+$password1=$_REQUEST['txtpassword'];
 
 //connect to mysql
 $server="us-cdbr-iron-east-03.cleardb.net";
@@ -21,7 +21,7 @@ else
 {
     mysql_select_db("ad_254e48c6f6af81f");
     
-    $query="insert into reg values('$name','$email','$phone','$rfid','$Password')";
+    $query="insert into reg values('$name','$email','$phone','$rfid','$password1')";
     
     $result=mysql_query($query,$connection);
     
