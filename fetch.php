@@ -1,41 +1,24 @@
-<?php
-//database parameters
-$server="us-cdbr-iron-east-03.cleardb.net";
-$username="bb8ff899f74f6a";
-$password="ff6ca091";
-$regno="";
-//connect to mysql
-$connection=mysql_connect($server,$username,$password) or die(mysql_error());
-if (!$connection)
- {
-	echo "Error in connection";
-}
-else
-{
-	mysql_select_db("ad_254e48c6f6af81f") or die(mysql_error());
 
-//fetch all regno from table
-	$query="select *from from reg";
-
-	//all rows are stored in $result
-	$result=mysql_query($query,$connection) or die(mysql_errno());
-	if(!$result)
-	{
-		echo mysql_error();
-	}
+ <?php
+	$con=mysql_connect('us-cdbr-iron-east-03.cleardb.net','b931d9fc7061c4','1f5e0021')  or die ("Con Error".mysql_error());
+    mysql_select_db('ad_db72847309cd7f4',$con);
+          
+    $sql="Select * from reg";	
+   
+    $ret_val=mysql_query($sql, $con) or die ("Error".mysql_error());
+    if($ret_val)
+    {
+    	if(mysql_num_rows($ret_val)>0)
+    	{
+    	echo "<html><center>";
+    	while($row=mysql_fetch_array($ret_val, MYSQL_NUM))	
+		echo ($row[0] . " and " . $row[1]."</br>");
+		
+		echo "</center></html>";
+    	}
 	else
-	{
-		//fetch each row from $result into row
-	while ($row=mysql_fetch_array($result,MYSQL_NUM))
-	 {
-	//row[0] is regnumber	# code...
-	echo ($row[0] . " and " . $row[1]."</br>");
-
-	}
-	//returns to android app as string
-	echo "success";
-
-	}
-}
-?>
- 
+		echo ("No Record Found");	
+    } 
+    else
+	echo (mysql_error()."Error");	
+  ?>
