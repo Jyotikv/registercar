@@ -1,5 +1,5 @@
 <?php
-$name==$_REQUEST['txtFullname'];
+$name=$_REQUEST['txtFullname'];
 $email=$_REQUEST['txtemail'];
 $phone=$_REQUEST['txtphone'];
 $rfid=$_REQUEST['txtrfid'];
