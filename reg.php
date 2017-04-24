@@ -1,9 +1,9 @@
 <?php
- $name==$_GET['txtFullname'];
-$email=$_GET['txtemail'];
-$phone=$_GET['txtphone'];
-$rfid=$_GET['txtrfid'];
-$password1=$_GET['txtpassword'];
+ $name==$_REQUEST['txtFullname'];
+$email=$_REQUEST['txtemail'];
+$phone=$_REQUEST['txtphone'];
+$rfid=$_REQUEST['txtrfid'];
+$password1=$_REQUEST['txtpassword'];
 
 
 //connect to mysql
