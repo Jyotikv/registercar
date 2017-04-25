@@ -35,3 +35,11 @@ else
 
 }
 ?>
+<html>
+  <head><title>Student Info</title></head>
+     	<a href="/fetch.php">fetch Page</a></br>
+  </html>
+<html>
+  <head><title>Student Info</title></head>
+     	<a href="/fetch.php">fetch </a></br>
+  </html>
