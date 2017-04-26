@@ -1,7 +1,7 @@
 
  <?php
  
- 	$name=$_REQUEST['txtFullname'];
+ 	//$name=$_REQUEST['txtFullname'];
 	$con=mysql_connect('us-cdbr-iron-east-03.cleardb.net','bb8ff899f74f6a','ff6ca091')  or die ("Con Error".mysql_error());
     mysql_select_db('ad_254e48c6f6af81f',$con);
           
@@ -10,7 +10,7 @@
     $ret_val=mysql_query($sql, $con) or die ("Error".mysql_error());
     if($ret_val)
     {
-    	if(mysql_num_rows($ret_val)==$name)
+    	if(mysql_num_rows($ret_val)==$)
     	{
     	echo ("already exits");	
     	}
