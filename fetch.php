@@ -5,7 +5,7 @@
 	$con=mysql_connect('us-cdbr-iron-east-03.cleardb.net','bb8ff899f74f6a','ff6ca091')  or die ("Con Error".mysql_error());
     mysql_select_db('ad_254e48c6f6af81f',$con);
           
-    $sql="Select Username from regg where Username='Jyoti'";	
+    $sql="Select Username from regg where Username='jyoti'";	
    
     $ret_val=mysql_query($sql, $con) or die ("Error".mysql_error());
     if($ret_val)
