@@ -1,8 +1,6 @@
 
  <?php
- 
- 	//$name=$_REQUEST['txtFullname'];
-	$con=mysql_connect('us-cdbr-iron-east-03.cleardb.net','bb8ff899f74f6a','ff6ca091')  or die ("Con Error".mysql_error());
+ 	$con=mysql_connect('us-cdbr-iron-east-03.cleardb.net','bb8ff899f74f6a','ff6ca091')  or die ("Con Error".mysql_error());
     mysql_select_db('ad_254e48c6f6af81f',$con);
           
     $sql="Select Username from regg where Username='jyoti'";	
@@ -15,15 +13,15 @@
     		echo "<html><center>";
     	while($row=mysql_fetch_array($ret_val, MYSQL_NUM))	
 		echo ($row[0]."</br>");
-		echo ("already exits");	
+		
 		echo "</center></html>";
-    	
-    	}
+       	}
 	else
 	{
-		echo "success"
+		echo "no field"
 	} 
 }
+
 
     else
 	echo (mysql_error()."Error");	
