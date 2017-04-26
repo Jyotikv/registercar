@@ -12,7 +12,7 @@
     	{
     	echo "<html><center>";
     	while($row=mysql_fetch_array($ret_val, MYSQL_NUM))	
-		echo ($row[0] </br>");
+		echo ($row[0] "</br>");
 		
 		echo "</center></html>";
     	}
