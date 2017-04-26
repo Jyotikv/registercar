@@ -10,7 +10,7 @@
     $ret_val=mysql_query($sql, $con) or die ("Error".mysql_error());
     if($ret_val)
     {
-    	if(mysql_num_rows($ret_val)==$)
+    	if(mysql_num_rows($ret_val)>0)
     	{
     	echo ("already exits");	
     	}
