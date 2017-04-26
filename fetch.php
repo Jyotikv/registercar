@@ -12,16 +12,19 @@
     {
     	if(mysql_num_rows($ret_val)>0)
     	{
-    	echo ("already exits");	
-    	}
-	else
-	{echo "<html><center>";
+    		echo "<html><center>";
     	while($row=mysql_fetch_array($ret_val, MYSQL_NUM))	
 		echo ($row[0]."</br>");
-		
+		echo ("already exits");	
 		echo "</center></html>";
-		
-    } 
+    	
+    	}
+	else
+	{
+		echo "success"
+	} 
+}
+
     else
 	echo (mysql_error()."Error");	
   ?>
