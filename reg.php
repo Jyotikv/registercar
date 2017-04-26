@@ -37,5 +37,9 @@ else
 ?>
 <html>
   <head><title>Student Info</title></head>
+  <body>
+  <fieldset>
      	<a href="/fetch.php">fetch Page</a></br>
+  </fieldset>
+  </body>
   </html>
