@@ -29,9 +29,7 @@ else
     }
     else
     {
-    	
-
-      echo "inserted successfully";
+    	echo "inserted successfully";
     }
     mysql_close($connection);
 
@@ -43,6 +41,7 @@ else
   <body>
   <fieldset>
   <a href="/fetch.php">fetch</a></br>
-
+  <a href="/reserv.html">Reserv</a></br>
+</fieldset>
   </body>
   </html>
