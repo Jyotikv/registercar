@@ -19,7 +19,7 @@ else
 {
     mysql_select_db("ad_254e48c6f6af81f");
     
-    $query="insert into reserv values('$carno','$date','$duration')";
+    $query="insert into demo values('$carno','$date','$duration')";
     
     $result=mysql_query($query,$connection);
     
