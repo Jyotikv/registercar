@@ -40,7 +40,7 @@ else
   <head><title>Student Info</title></head>
   <body>
   <fieldset>
-  <a href="/fetch.php">fetch</a></br>
+  <a href="/fetch.html">fetch</a></br>
   <a href="/reserv.html">Reserv</a></br>
 </fieldset>
   </body>
