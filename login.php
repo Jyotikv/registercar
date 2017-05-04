@@ -5,7 +5,7 @@ $con=mysql_connect("us-cdbr-iron-east-03.cleardb.net","bb8ff899f74f6a","ff6ca091
 // Check connection
 mysql_select_db("ad_254e48c6f6af81f") or die (mysql_connect_errno());
 
-$strsql="SELECT * FROM regg WHERE Username='$Uname' and password='$pass1'";
+$strsql="SELECT * FROM regg WHERE Username='$Uname' & password='$pass1'";
 $rs=mysql_query($strsql,$con);
 if($rs)
  $cnt=mysql_affected_rows($con);
@@ -13,10 +13,10 @@ if($rs)
 {
   while ($row=mysql_fetch_array($rs))
     {
-   // echo "<dt>Car Number:</dt><dd>".$row["0"]."</br>" ;
+    echo "<dt>You are succefully loged in:</dt><dd>".$row["0"]."</br>" ;
     //echo "<dt>Date:</dt><dd>".$row["1"]."</br>";
     //echo "<dt>Duration:</dt><dd>".$row["2"]."</br>";
-    echo "you are succefully loged in"
+   //echo "you are succefully loged in"
     }
 
 }
