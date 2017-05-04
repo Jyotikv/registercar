@@ -6,12 +6,18 @@ mysql_select_db("ad_254e48c6f6af81f") or die (mysql_connect_errno());
 
 $strsql="SELECT * FROM demo WHERE carNo='$car'";
 $rs=mysql_query($strsql);
+if($rs)
+{
   while ($row=mysql_fetch_array($rs))
     {
-    echo "<dt>Num:</dt><dd>".$car["0"]."</br>" ;
+    echo "<dt>Num:</dt><dd>".$row["0"]."</br>" ;
   //  $car=$car.$row[0].":";
 }
 echo "$car";
-
+}
+else
+{
+	echo "not found";
+}
 mysql_close($con);
 ?>
