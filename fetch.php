@@ -7,13 +7,14 @@ mysql_select_db("ad_254e48c6f6af81f") or die (mysql_connect_errno());
 $strsql="SELECT * FROM demo WHERE carNo='$car'";
 $rs=mysql_query($strsql,$con);
 if($rs)
+ $cnt=mysql_affected_rows($con);
+ if($cnt)
 {
   while ($row=mysql_fetch_array($rs))
     {
     echo "<dt>Num:</dt><dd>".$row["0"]."</br>" ;
-  //  $car=$car.$row[0].":";
-	}
-//echo "$car";
+    }
+
 }
 else
 {
