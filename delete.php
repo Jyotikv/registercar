@@ -1,34 +1,22 @@
- <?php
- $server="us-cdbr-iron-east-03.cleardb.net";
- $username="bb8ff899f74f6a";
- $password="ff6ca091";
-   if(ISSET($_GET["btn"]))
-   {
-   	 $con=mysql_connect('Server Name','UserName','Passwd')  or die ("Con Error".mysql_error());
-    mysql_select_db('ad_254e48c6f6af81f',$con);
-    $txtrfid=$_GET["txtrfid"]; 	   
-      
-    $sql="Delete from regg where rfid ='$txtrfid'";	
-  
-    $ret_val=mysql_query($sql, $con) or die ("Error".mysql_error());
-    if($ret_val)
-	echo ("Record Deleted");
-    else
-	echo (mysql_error()."Error");
-  }
-  ?>
-  
-  <html>
-  <head><title>SIMS</title></head>
-	<body>
+<?php
+   $host='us-cdbr-iron-east-03.cleardb.net';
+	$uname='bb8ff899f74f6a';
+	$pwd='ff6ca091';
+	$db="ad_254e48c6f6af81f";
+$con = mysql_connect($host,$uname,$pwd) or 	die("connection failed");   
+mysql_select_db($db,$con) or die("db selection failed"); 
+   	session_start();
 
-    <fieldset>
-  <legend>Delete</legend>
-  <form action="delete.php" method="get">
-   Enter USN to Delete<input type="text" name="rfid">
-   <input type="Submit" Value="Delete" name="btn"> 
-  </form>
-  </fieldset>
-  <a href="/index.php">Home Page</a></br>
-	</body>
-  </html>
+	$carnum = $_REQUEST['txtcar3'];
+	
+ if($result=mysql_query("delete from demo where CarNo='$carnum'",$con))
+$cnt=mysql_affected_rows($con);
+if(!$cnt)
+{
+echo "Enter Correct Car Number";
+ }
+else
+{
+	echo "Reserved slot has been cancelled successfully";
+}
+?>

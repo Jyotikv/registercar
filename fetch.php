@@ -12,9 +12,9 @@ if($rs)
 {
   while ($row=mysql_fetch_array($rs))
     {
-    echo "<dt>Num:</dt><dd>".$row["0"]."</br>" ;
-    echo "<dt>Num:</dt><dd>".$row["1"]."</br>";
-    echo "<dt>Num:</dt><dd>".$row["2"]."</br>";
+    echo "<dt>Car Number:</dt><dd>".$row["0"]."</br>" ;
+    echo "<dt>Date:</dt><dd>".$row["1"]."</br>";
+    echo "<dt>Duration:</dt><dd>".$row["2"]."</br>";
     }
 
 }
