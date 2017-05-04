@@ -12,8 +12,8 @@ if($rs)
     {
     echo "<dt>Num:</dt><dd>".$row["0"]."</br>" ;
   //  $car=$car.$row[0].":";
-}
-echo "$car";
+	}
+//echo "$car";
 }
 else
 {
