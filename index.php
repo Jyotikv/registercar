@@ -5,30 +5,12 @@
 </head>
 <body>
 	<center>
-	
-	<h3>Car parking system <h3>
-	<table>
-	<tr>
-	<td><h3>Login</h3></td>
-	<td><a href="/login.html"></td>
-	</tr>
-	<tr>
-	<td><h3>Register</h3></td>
-	<td><a href="/reg.html"></td>
-	</tr>
-	<tr>
-	<td><h3>Reserve</h3></td>
-	<td><a href="/reserv.html"></td>
-	</tr>
-	<tr>
-	<td><h3>My Booking details</h3></td>
-	<td><a href="/fetch.html"></td>
-	</tr>
-	<tr>
-	<td><h3>Delete</h3></td>
-	<td><a href="/delete.html"></td>
-	</tr>
-	</table>
-
+<fieldset>	
+<a href="/login.html"><h3>Login</h3></a></br>
+<a href="/reg.html"><h3>Register</h3></a></br>
+<a href="/reserv.html"><h3>Reserve</h3></a></br>
+<a href="/fetch.html"><h3>My booking details</h3></a></br>
+<a href="/delete.html"><h3>Delete</h3></a></br>
+</fieldset>
   </center>
 	</body></html>

@@ -36,14 +36,3 @@ else
 	}
 
 ?>
-<html>
-  <head><title>Student Info</title></head>
-  <body>
-  <fieldset>
-  <a href="/fetch.html">fetch</a></br>
-  <a href="/reserv.html">Reserv</a></br>
-  <a href="/delete.html">Delete</a></br>
-  
-</fieldset>
-  </body>
-  </html>
