@@ -8,8 +8,8 @@ $strsql="SELECT * FROM demo WHERE carNo='$car'";
 $rs=mysql_query($strsql);
   while ($row=mysql_fetch_array($rs))
     {
-    echo "<dt>Num:</dt><dd>".$row["0"]."</br>" ;
-    $car=$car.$row[0].":";
+    echo "<dt>Num:</dt><dd>".$car["0"]."</br>" ;
+  //  $car=$car.$row[0].":";
 }
 echo "$car";
 
