@@ -28,9 +28,8 @@ else
   while ($row=mysql_fetch_array($rs))
     {
     echo "Reserved slots :".$row["5"] ;
-    
-    }
-    if($row["5"]==1)
+
+	   if($row["5"]==1)
     {
     	echo "remaining slots are 2,3,4";
     }
@@ -38,8 +37,12 @@ else
     {
     	echo "remaining slots are 1,3,4";
     }
+    else
+    {
+    	echo "check";
+    }
     
-
+	}
 }
 else
 {
