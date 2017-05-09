@@ -22,10 +22,23 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    
-    
+    $query2="select * from demo where crtDate='$date' and Fromtime='$fm' and Totime='$t' and slotNo='$slot'";
+    $rs=mysql_query($query2,$connection);
+	if($rs)
+	{
+ 	$cnt=mysql_affected_rows($connection);
+ 	}
+ 	if($cnt)
+	{
+  			while ($row=mysql_fetch_array($rs))
+    	{
+   			 echo $row["0"]."is already reserved";
+   		}
+	}
+	else
+	{
     if($duration<4)
- {   
+ 	{   
     $query="insert into demo values('$carno','$date','$fm','$t','$duration','$slot')";
     
     $result=mysql_query($query,$connection);
@@ -38,10 +51,12 @@ else
     {
         echo "Reserved successfully";
     }
-}
+	}
+	
 else
 {
 	echo "Duartion must be below 4 hours";
+}
 }
 if($duration==1)
 {
