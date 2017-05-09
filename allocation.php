@@ -1,6 +1,6 @@
 <?php
 
-$date=$_REQUEST['txtdate2'];
+$date1=$_REQUEST['txtdate2'];
 $time1=$_REQUEST['txtfrom'];
 $time2=$_REQUEST['txtto'];
 
@@ -19,10 +19,10 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date' and Fromtime='$time1' and Todate='$time2' ";
-$rs=mysql_query($strsql,$con);
-if($rs)
- $cnt=mysql_affected_rows($con);
+    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Fromtime='$time1' and Todate='$time2' ";
+ 	$rs=mysql_query($strsql,$connection);
+	if($rs)
+ 	$cnt=mysql_affected_rows($connection);
  if($cnt)
 {
   while ($row=mysql_fetch_array($rs))
