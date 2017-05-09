@@ -29,7 +29,8 @@ else
     }
     else
     {
-    	echo "inserted successfully";
+    	
+    	echo "Inserted successfully";
     }
     mysql_close($connection);
 

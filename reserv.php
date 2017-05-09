@@ -27,8 +27,8 @@ else
     
     if(!$result)
     {
-        echo "insertion failed";
-    }
+       echo "Insertion failed";
+  }
     else
     {
         echo "Reserved successfully";
@@ -36,7 +36,7 @@ else
 }
 else
 {
-	echo "duartion timing must be below 4 hours";
+	echo "Duartion must be below 4 hours";
 }
 
     mysql_close($connection);
