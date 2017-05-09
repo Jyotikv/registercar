@@ -22,11 +22,8 @@ else
     mysql_select_db("ad_254e48c6f6af81f");
     $query2= "SELECT * FROM regg WHERE Username='$name' and Email-id='$email'";
     	$rs=mysql_query($query2,$con);
-		if($rs)
- 		{
- 			$cnt=mysql_affected_rows($con);
- 		}
- 		if($cnt)
+		
+ 		if($rs)
 		{
   			while ($row=mysql_fetch_array($rs))
     		{
