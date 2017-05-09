@@ -2,6 +2,8 @@
 
 $carno=$_REQUEST['txtcar'];
 $date=$_REQUEST['txtdate'];
+$fm=$_REQUEST['txtfrom'];
+$t=$_REQUEST['txtto'];
 $duration=$_REQUEST['txtduration'];
 $slot=$_REQUEST['txtslotnum'];
 
