@@ -81,7 +81,7 @@ else
 }
 }
 $num=6-4;
-
+echo "$num";
     mysql_close($connection);
 }
 
