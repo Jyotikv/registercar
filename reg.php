@@ -23,14 +23,16 @@ else
     $query2 = "SELECT * FROM regg WHERE Username='$name' and Email-id='$email'";
     $rs= mysql_query($query2,$connection);
 	if($rs)
+	{
 	 $cnt=mysql_affected_rows($connection);
- 		if($cnt)
-		{
+ 	}
+ 	if($cnt)
+	{
   			while ($row=mysql_fetch_array($rs))
     		{
     				echo "your already registered".$row["0"] ;
 			}
-		}
+	}
 		else
 		{
    			$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
