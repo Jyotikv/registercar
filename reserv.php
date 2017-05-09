@@ -19,6 +19,8 @@ else
 {
     mysql_select_db("ad_254e48c6f6af81f");
     
+    if($duration<4)
+ {   
     $query="insert into demo values('$carno','$date','$duration')";
     
     $result=mysql_query($query,$connection);
@@ -31,6 +33,12 @@ else
     {
         echo "Reserved successfully";
     }
+}
+else
+{
+	echo "duartion timing must be below 4 hours"
+}
+
     mysql_close($connection);
 }
 
