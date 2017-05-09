@@ -20,7 +20,7 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $query2="select *from regg where Username='$name' and Email-id='$email'";
+    $query2= "select * from regg where Username='$name' and Email-id='$email'";
     	$rs=mysql_query($query2,$con);
 		if($rs)
  		$cnt=mysql_affected_rows($con);
