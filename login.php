@@ -13,7 +13,7 @@ if($rs)
 {
   while ($row=mysql_fetch_array($rs))
     {
-    echo "<dt>You are succefully loged in:</dt><dd>".$row["0"]."</br>" ;
+    echo "You are succefully loged in:".$row["0"]."</br>" ;
     //echo "<dt>Date:</dt><dd>".$row["1"]."</br>";
     //echo "<dt>Duration:</dt><dd>".$row["2"]."</br>";
    //echo "you are succefully loged in"
