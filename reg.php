@@ -20,16 +20,7 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-   	$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
-   	$result=mysql_query($query,$connection);
-	
-	if(!$result)
-    {
-        echo "insertion failed";
-    }
-    else
-    {
-    	$query2="select *from regg where Username='$name' and Email-id='$email'";
+    $query2="select *from regg where Username='$name' and Email-id='$email'";
     	$rs=mysql_query($query2,$con);
 		if($rs)
  		$cnt=mysql_affected_rows($con);
@@ -40,14 +31,24 @@ else
     				echo "your already registered".$row["0"] ;
 			}
 		}
-		else 
+		else
 		{
-    	echo "Registered successfully";
-    	}
-}
+   			$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
+   			$result=mysql_query($query,$connection);
+	
+			if(!$result)
+    		{
+        		echo "insertion failed";
+    		}
+    		else
+ 			{
+    			echo "Registered successfully";
+			}
+
+		}
 
     mysql_close($connection);
 
-	}
+}
 
 ?>
