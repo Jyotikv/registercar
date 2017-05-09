@@ -30,7 +30,7 @@ else
     else
     {
     	
-    	echo "Inserted successfully";
+    	echo "Registered successfully";
     }
     mysql_close($connection);
 
