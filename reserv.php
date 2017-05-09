@@ -51,14 +51,7 @@ else
     {
         echo "Reserved successfully";
     }
-	}
-	
-else
-{
-	echo "Duartion must be below 4 hours";
-}
-}
-if($duration==1)
+    if($duration==1)
 {
 	$res1=$duration*20;
 	echo "your bill is".$res1;
@@ -72,6 +65,14 @@ else if($duration==3)
 {
 	$res3=$duration*20;
 	echo "your bill is".$res3;
+}
+
+	}
+	
+else
+{
+	echo "Duartion must be below 4 hours";
+}
 }
 
 
