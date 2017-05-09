@@ -4,7 +4,6 @@ $carno=$_REQUEST['txtcar'];
 $date=$_REQUEST['txtdate'];
 $fm=$_REQUEST['txtfrom'];
 $t=$_REQUEST['txtto'];
-$duration=$_REQUEST['txtduration'];
 $slot=$_REQUEST['txtslotnum'];
 
 
@@ -37,10 +36,10 @@ else
 	}
 	else
 	{
-		
-    if($fm<$t && $duration<=4)
+	$duration=$t-$fm;
+    if($fm<$t && $duration>0 $$ $duration<=4)
  	{   
-    $query="insert into demo values('$carno','$date','$fm','$t','$duration','$slot')";
+    $query="insert into demo values('$carno','$date','$fm','$t','$slot')";
     
     $result=mysql_query($query,$connection);
     
@@ -80,8 +79,7 @@ else
 	echo "entry time must be less than exit time and Duartion must be below 4 hours";
 }
 }
-$num=6-4;
-echo "$num";
+
     mysql_close($connection);
 }
 
