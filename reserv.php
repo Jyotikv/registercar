@@ -22,7 +22,7 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $query2="select * from demo where crtDate='$date' and Fromtime='$fm' and Totime='$t' and slotNo='$slot'";
+    $query2="select * from demo where crtDate='$date' and Entrytime='$fm' and Exittime='$t' and slotNo='$slot'";
     $rs=mysql_query($query2,$connection);
 	if($rs)
 	{
@@ -32,12 +32,13 @@ else
 	{
   			while ($row=mysql_fetch_array($rs))
     	{
-   			 echo $row["0"]."is already reserved";
+   			 echo $row["5"]."is already reserved";
    		}
 	}
 	else
 	{
-    if($duration<4)
+		
+    if($fm<$t && $duration<=4)
  	{   
     $query="insert into demo values('$carno','$date','$fm','$t','$duration','$slot')";
     
@@ -53,28 +54,33 @@ else
     }
     if($duration==1)
 {
-	$res1=$duration*20;
+	$res1=$duration*50;
 	echo "your bill is".$res1;
 }
 else if($duration==2)
 {
-	$res2=$duration*20;
+	$res2=$duration*50;
 	echo "your bill is".$res2;
 }
 else if($duration==3)
 {
-	$res3=$duration*20;
+	$res3=$duration*50;
 	echo "your bill is".$res3;
+}
+else if($duration==4)
+{
+	$res4=$duration*50;
+	echo "your bill is".$res4;
 }
 
 	}
 	
 else
 {
-	echo "Duartion must be below 4 hours";
+	echo "entry time must be less than exit time and Duartion must be below 4 hours";
 }
 }
-
+$num=6-4;
 
     mysql_close($connection);
 }

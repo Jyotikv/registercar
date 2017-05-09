@@ -19,7 +19,7 @@ if(!$connection)
 else
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Fromtime='$time1' and Totime='$time2' ";
+    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$time1' and Exittime='$time2' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
  	$cnt=mysql_affected_rows($connection);
@@ -37,6 +37,11 @@ else
     {
     	echo "remaining slots are 1,3,4";
     }
+     else if($row["5"]==3)
+    {
+    	echo "remaining slots are 1,2,4";
+    }
+    
     else
     {
     	echo "check";
