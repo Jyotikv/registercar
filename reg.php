@@ -29,9 +29,23 @@ else
     }
     else
     {
-    	
+    	$query2="select *from regg where Username='$name' and Email-id='$email'";
+    	$rs=mysql_query($query2,$con);
+		if($rs)
+ 		$cnt=mysql_affected_rows($con);
+ 		if($cnt)
+		{
+  			while ($row=mysql_fetch_array($rs))
+    		{
+    				echo "your already registered".$row["0"] ;
+			}
+		}
+		else 
+		{
     	echo "Registered successfully";
-    }
+    	}
+}
+
     mysql_close($connection);
 
 	}

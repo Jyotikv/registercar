@@ -4,6 +4,8 @@ $carno=$_REQUEST['txtcar'];
 $date=$_REQUEST['txtdate'];
 $duration=$_REQUEST['txtduration'];
 $slot=$_REQUEST['txtslotnum'];
+
+
 //connect to mysql
 $server="us-cdbr-iron-east-03.cleardb.net";
 $username="bb8ff899f74f6a";
@@ -54,10 +56,7 @@ else if($duration==3)
 	$res3=$duration*20;
 	echo "your bill is".$res3;
 }
-else 
-{
-	echo "Duration is exceeding";
-}
+
 
     mysql_close($connection);
 }
