@@ -38,7 +38,7 @@ else
     {
     	echo  "  remaining slots are 3,4";
     }
-     else if($row["4"]==1 && $row["2"]==2 $row["3"]==3)
+     else if($row["4"]==1 && $row["2"]==2 && $row["3"]==3)
     {
     	echo "  remaining slots is 4";
     }
