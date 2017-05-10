@@ -37,7 +37,7 @@ else
 	else
 	{
 	$duration=$t-$fm;
-    if($fm<$t && $duration>0 && $duration<=4)
+    if($fm<$t && $duration<=4)
  	{   
  	   $query="insert into demo values('$carno','$date','$fm','$t','$slot')";
        $result=mysql_query($query,$connection);
