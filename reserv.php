@@ -24,7 +24,10 @@ else
     $query2="select * from demo where crtDate='$date' and Entrytime='$fm' and Exittime='$t' and slotNo='$slot'";
     $rs=mysql_query($query2,$connection);
 	if($rs)
+	{
 	$cnt=mysql_affected_rows($connection);
+	}
+
  	if($cnt)
 	{
   			while ($row=mysql_fetch_array($rs))
@@ -34,19 +37,18 @@ else
 	}
 	else
 	{
-		
- 	   $query="insert into demo values('$carno','$date','$fm','$t','$slot')";
- 	      $result=mysql_query($query,$connection);
+		 $query="insert into demo values('$carno','$date','$fm','$t','$slot')";
+ 	     $result=mysql_query($query,$connection);
 	 	 if(!$result)
-    {
-       echo "Reservation failed";
-  	}
-    else
-    {
-        echo "Reserved succefully";
-    }
-    }	}
+   		 {
+    			 echo "Reservation failed";
+  		}
+   		 else
+   		 {
+        		echo "Reserved succefully";
+    	}
+    	}					
 mysql_close($connection);
-
+}
 
 ?>
