@@ -29,7 +29,7 @@ else
 	{
   			while ($row=mysql_fetch_array($rs))
     	{
-   			 echo $row["5"]."is already reserved";
+   			 echo $row["4"]."is already reserved";
    		}
 	}
 	else
@@ -47,24 +47,30 @@ else
     {
         echo "Reserved succefully";
     }
-     if($duration==1)
+}
+else
 {
-	$res1=$duration*50;
+	echo "Entry time must be less than exit time and Duartion must be below 4 hours";
+}
+$duration2=$t-$fm;
+     if($duration2==1)
+{
+	$res1=$duration2*50;
 	echo "your amount  is".$res1;
 }
-else if($duration==2)
+else if($duration2==2)
 {
-	$res2=$duration*50;
+	$res2=$duration2*50;
 	echo "your amount is".$res2;
 }
-else if($duration==3)
+else if($duration2==3)
 {
-	$res3=$duration*50;
+	$res3=$duration2*50;
 	echo "your amount is".$res3;
 }
-else if($duration==4)
+else if($duration2==4)
 {
-	$res4=$duration*50;
+	$res4=$duration2*50;
 	echo "your amount is".$res4;
 }
 else
@@ -72,13 +78,7 @@ else
 	echo "Duration must be below 4";
 }
 }
-else
-{
-	echo "Entry time must be less than exit time and Duartion must be below 4 hours";
 }
-}
-}
-
-    mysql_close($connection);
+mysql_close($connection);
 
 ?>
