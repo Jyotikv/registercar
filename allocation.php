@@ -3,6 +3,7 @@
 $date1=$_REQUEST['txtdate2'];
 $time1=$_REQUEST['txtfrom'];
 $time2=$_REQUEST['txtto'];
+$slot2=$_REQUEST['txtslot1'];
 
 
 //connect to mysql
@@ -19,46 +20,42 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$time1' and Exittime='$time2' ";
+    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$time1' and Exittime='$time2' and slotNo='$slot2' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
  	$cnt=mysql_affected_rows($connection);
  	if($cnt)
 	{
-		
- 	while ($row=mysql_fetch_array($rs))
+		while ($row=mysql_fetch_array($rs))
     {
-    echo "Reserved slots :".$row["4"] ;
-
-	   if($row["4"]==1)
-    {
-    	echo " remaining slots are 2,3,4";
-    }
-    else if($row["4"]==1 && $row["4"]==2)
-    {
-    	echo  "  remaining slots are 3,4";
-    }
-     else if($row["4"]==1 && $row["2"]==2 && $row["3"]==3)
-    {
-    	echo "  remaining slots is 4";
-    }
-      else if($row["4"]==1 && $row["4"]==2 && $row["4"]==3 && $row["4"]==4)
-    {
-    	echo "  remaining slots zero";
-    }
-    else
-    {
-    	echo " 1,2,3,4 slots are available";
-    }
-    
+    	echo $row["4"]."already allocated";
 	}
-      }
-     
- 	else
- 	{
- 		echo "all slots are reserved  ";
- 	}
- }
+	}
+
+	else
+	{
+    	if($slot2==1)
+    	{
+    		echo "It is available "; 		
+    	}
+      	if($slot2==2)
+    	{
+    		echo "It is available "; 		
+    	}
+    	 else 	if($slot2==3)
+    	{
+    		echo "It is available "; 		
+    	}
+    	  else	if($slot2==4)
+    	{
+    		echo "It is available "; 		
+    	}
+    	else 
+    	{
+    		echo "Not avalibale";
+    	}
+	}
+
 
 mysql_close($con);
 ?>
