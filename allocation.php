@@ -55,7 +55,7 @@ else
     		echo "Not avalibale";
     	}
 	}
-
+}
 
 mysql_close($connection);
 ?>
