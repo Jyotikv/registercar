@@ -32,7 +32,7 @@ else
 	{
   			while ($row=mysql_fetch_array($rs))
     	{
-   			 echo $row["4"]."is already reserved";
+   			 echo "sorry".$row["4"]."is already reserved";
    		}
 	}
 	else
