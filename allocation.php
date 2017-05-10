@@ -25,8 +25,7 @@ else
  	$cnt=mysql_affected_rows($connection);
  	if($cnt)
 	{
-		if($time1<$time2)
- 	{
+		
  	while ($row=mysql_fetch_array($rs))
     {
     echo "Reserved slots :".$row["5"] ;
@@ -47,7 +46,6 @@ else
     {
     	echo "  remaining slots are 1,2,3";
     }
-    
     else
     {
     	echo " 1,2,3,4 slots are available";
@@ -55,13 +53,12 @@ else
     
 	}
       }
-      else
-      echo "entry time must be less than exit time";  
- 	}
+     
  	else
  	{
  		echo "all 1,2,3,4 are availabal ";
  	}
+ }
 
 mysql_close($con);
 ?>
