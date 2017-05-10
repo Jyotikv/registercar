@@ -21,7 +21,7 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE carNo='$carno' and crtDate='$date1' and Entrytime='$entry1' and Exittime='$exit1' and slotNo='$slot3' ";
+    $strsql="SELECT * FROM demo WHERE carNo='$carno' or crtDate='$date1' and Entrytime='$entry1' and Exittime='$exit1' and slotNo='$slot3' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
 	{
