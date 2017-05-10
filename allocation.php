@@ -38,7 +38,7 @@ else
     	{
     		echo "It is available "; 		
     	}
-      	if($slot2==2)
+      	else if($slot2==2)
     	{
     		echo "It is available "; 		
     	}
@@ -57,5 +57,5 @@ else
 	}
 
 
-mysql_close($con);
+mysql_close($connection);
 ?>
