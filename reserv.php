@@ -80,14 +80,15 @@ else if($duration==4)
 	$res4=$duration*50;
 	echo "your amount is".$res4;
 }
-
-	}
-	
+else
+{
+	echo "Duration must be below 4";
+}
+}
 else
 {
 	echo " Duartion must be below 4 hours";
 }
 }
-
     mysql_close($connection);
 ?>
