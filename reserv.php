@@ -41,10 +41,9 @@ else
  	{   
  	   $query="insert into demo values('$carno','$date','$fm','$t','$slot')";
        $result=mysql_query($query,$connection);
-       
-   	 if(!$result)
+	 	 if(!$result)
     {
-       echo "Insertion failed";
+       echo "Reservation failed";
   	}
     else
     {
@@ -55,7 +54,11 @@ else
   {
   echo "Entry time must be less than exit time and Duartion must be below 4 hours";
 }
-if( $duration>0 && $duration<=4)	
+
+}
+
+$duration=$t-$fm;
+	if( $duration>0 && $duration<=4)	
 {  
     if($duration==1)
 {
