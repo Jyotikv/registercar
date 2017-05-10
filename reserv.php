@@ -24,9 +24,7 @@ else
     $query2="select * from demo where crtDate='$date' and Entrytime='$fm' and Exittime='$t' and slotNo='$slot'";
     $rs=mysql_query($query2,$connection);
 	if($rs)
-	{
- 	$cnt=mysql_affected_rows($connection);
- 	}
+	$cnt=mysql_affected_rows($connection);
  	if($cnt)
 	{
   			while ($row=mysql_fetch_array($rs))
