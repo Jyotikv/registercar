@@ -56,7 +56,7 @@ else
      
  	else
  	{
- 		echo "all 1,2,3,4 are availabal ";
+ 		echo "all slots are reserved  ";
  	}
  }
 
