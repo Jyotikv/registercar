@@ -14,13 +14,14 @@ if($rs)
     {
     echo "Car Number:".$row["0"] ;
     echo "Date:".$row["1"];
-    echo "Duration:".$row["2"];
+    echo "Entry timing:".$row["2"];
+     echo "Exit timing:".$row["3"];
     }
 
 }
 else
 {
-	echo "not found";
+	echo "The entered car number is not registered";
 }
 mysql_close($con);
 ?>

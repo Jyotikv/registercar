@@ -23,7 +23,9 @@ else
     $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$time1' and Exittime='$time2' and slotNo='$slot2' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
+	{
  	$cnt=mysql_affected_rows($connection);
+ 	}
  	if($cnt)
 	{
 		while ($row=mysql_fetch_array($rs))
@@ -52,7 +54,7 @@ else
     	}
     	else 
     	{
-    		echo "Not avalibale";
+    		echo "1,2,3,4 slots are avalibale ";
     	}
 	}
 }

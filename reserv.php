@@ -7,7 +7,7 @@ $t=$_REQUEST['txtto'];
 $slot=$_REQUEST['txtslotnum'];
 
 
-//connect to mysql
+/7/connect to mysql
 $server="us-cdbr-iron-east-03.cleardb.net";
 $username="bb8ff899f74f6a";
 $password="ff6ca091";
@@ -54,29 +54,29 @@ else
     if($duration==1)
 {
 	$res1=$duration*50;
-	echo "your bill is".$res1;
+	echo "your amount  is".$res1;
 }
 else if($duration==2)
 {
 	$res2=$duration*50;
-	echo "your bill is".$res2;
+	echo "your amount is".$res2;
 }
 else if($duration==3)
 {
 	$res3=$duration*50;
-	echo "your bill is".$res3;
+	echo "your amount is".$res3;
 }
 else if($duration==4)
 {
 	$res4=$duration*50;
-	echo "your bill is".$res4;
+	echo "your amount is".$res4;
 }
 
 	}
 	
 else
 {
-	echo "entry time must be less than exit time and Duartion must be below 4 hours";
+	echo "Entry time must be less than exit time and Duartion must be below 4 hours";
 }
 }
 

@@ -13,8 +13,8 @@ if($rs)
 {
   while ($row=mysql_fetch_array($rs))
     {
-    	return 1;
-    //echo "You are succefully loged in:".$row["0"] ;
+    	//return 1;
+    echo "You are succefully loged in:".$row["0"] ;
     //echo "<dt>Date:</dt><dd>".$row["1"]."</br>";
     //echo "<dt>Duration:</dt><dd>".$row["2"]."</br>";
    //echo "you are succefully loged in"
@@ -23,7 +23,7 @@ if($rs)
 }
 else
 {
-	echo "please register";
+	echo "PLEASE REGISTER";
 }
 mysql_close($con);
 ?>
