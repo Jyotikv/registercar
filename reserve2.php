@@ -37,7 +37,16 @@ else
 
 	else
 	{
-    	echo "you are slot is allocated";
+    	 $query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
+       $result=mysql_query($query,$connection);
+	 	 if(!$result)
+    {
+       echo "Reservation failed";
+  	}
+    else
+    {
+        echo "Reserved succefully";
+    }
 	}
 }
 
