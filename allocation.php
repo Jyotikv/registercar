@@ -34,17 +34,17 @@ else
     {
     	echo " remaining slots are 2,3,4";
     }
-    else if($row["4"]==2)
+    else if($row["4"]==1 && $row["4"]==2)
     {
-    	echo  "  remaining slots are 1,3,4";
+    	echo  "  remaining slots are 3,4";
     }
-     else if($row["4"]==3)
+     else if($row["4"]==1 && $row["2"]==2 $row["3"]==3)
     {
-    	echo "  remaining slots are 1,2,4";
+    	echo "  remaining slots is 4";
     }
-      else if($row["4"]==4)
+      else if($row["4"]==1 && $row["4"]==2 && $row["4"]==3 && $row["4"]==4)
     {
-    	echo "  remaining slots are 1,2,3";
+    	echo "  remaining slots zero";
     }
     else
     {
