@@ -30,7 +30,7 @@ else
 	{
 		while ($row=mysql_fetch_array($rs))
     {
-    	echo $row["4"]."already allocated";
+    	echo $row["4"]." Already allocated";
 	}
 	}
 
@@ -38,19 +38,19 @@ else
 	{
     	if($slot2==1)
     	{
-    		echo "It is available "; 		
+    		echo "This slot  is available "; 		
     	}
       	else if($slot2==2)
     	{
-    		echo "It is available "; 		
+    		echo "This slot is available "; 		
     	}
     	 else 	if($slot2==3)
     	{
-    		echo "It is available "; 		
+    		echo "This slot is available "; 		
     	}
     	  else	if($slot2==4)
     	{
-    		echo "It is available "; 		
+    		echo "This slot is available "; 		
     	}
     	else 
     	{

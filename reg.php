@@ -30,7 +30,7 @@ else
 	{
   			while ($row=mysql_fetch_array($rs))
     		{
-    				echo "your already registered".$row["0"] ;
+    				echo "You are already registered".$row["0"] ;
 			}
 	}
 		else

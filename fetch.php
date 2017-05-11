@@ -16,12 +16,13 @@ if($rs)
     echo "Date:".$row["1"];
     echo "Entry timing:".$row["2"];
      echo "Exit timing:".$row["3"];
+     echo "slot number:".$show["4"];
     }
 
 }
 else
 {
-	echo "The entered car number is not registered";
+	echo "The entered car number is not registered . Check again with valid car number";
 }
 mysql_close($con);
 ?>

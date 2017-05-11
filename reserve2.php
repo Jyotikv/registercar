@@ -72,7 +72,7 @@ else if($duration==4)
 }
 else
 {
-	echo "Duration must be below 4";
+	echo "Duration must be below 4 hours";
 }
 	}
 	else
