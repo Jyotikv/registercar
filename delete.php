@@ -1,26 +1,43 @@
 <?php
-   $host='us-cdbr-iron-east-03.cleardb.net';
-	$uname='bb8ff899f74f6a';
-	$pwd='ff6ca091';
-	$db="ad_254e48c6f6af81f";
-$con = mysql_connect($host,$uname,$pwd) or 	die("connection failed");   
-mysql_select_db($db,$con) or die("db selection failed"); 
-   	session_start();
+$carnum2=$_REQUEST['txtcar3'];
+$date2=$_REQUEST['txtdate3'];
+$entry2=$_REQUEST['txttime3'];
+$exit2=$_REQUEST['txttime4'];
 
-	$carnum = $_REQUEST['txtcar3'];
-	$date2=$_REQUEST['txtdate3'];
-	$entry2=$_REQUEST['txttime3'];
-	$exit2=$_REQUEST['txttime4'];
-	
-	
- if($result=mysql_query("delete from demo where carNo='$carnum' and crtdate='$date2' and Entrytime='$entry2' and Exittime='$exit2'",$con))
-$cnt=mysql_affected_rows($con);
-if(!$cnt)
+
+
+//connect to mysql
+$server="us-cdbr-iron-east-03.cleardb.net";
+$username="bb8ff899f74f6a";
+$password="ff6ca091";
+
+$connection=mysql_connect($server,$username,$password);
+
+if(!$connection)
 {
-echo "No slot is reserved for this user .Check the given information";
- }
-else
-{
-	echo "Reserved slot has been cancelled successfully";
+    echo "connection failed";
 }
+else 
+{
+    mysql_select_db("ad_254e48c6f6af81f");
+    $strsql="SELECT * FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'";
+ 	$rs=mysql_query($strsql,$connection);
+	if($rs)
+	{
+ 	$cnt=mysql_affected_rows($connection);
+ 	}
+ 	if($cnt)
+	{
+		while ($row=mysql_fetch_array($rs))
+    {
+    	echo "your reserved slot has been cancelled successfully" ;
+	}
+	}
+
+	else
+	{
+		echo "No slot is reserved for this user .Check the given information";
+	}
+}
+mysql_close($connection);
 ?>
