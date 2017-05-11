@@ -9,9 +9,10 @@ mysql_select_db($db,$con) or die("db selection failed");
    	session_start();
 
 	$car5= $_REQUEST['txtcar4'];
-	$date5 = $_REQUEST['txtdate4'];
+	$entry5 = $_REQUEST['txtentry4'];
+	$exit5 = $_REQUEST['txtexit4'];
 	
- if($result=mysql_query("delete from demo where carNo='$car5' and crtTime='$date5'",$con))
+ if($result=mysql_query("delete from demo where carNo='$car5' and Entrytime='$entry5' and Exittime='exit5'",$con))
 $cnt=mysql_affected_rows($con);
 if(!$cnt)
 {
