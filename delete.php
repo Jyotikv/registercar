@@ -8,11 +8,11 @@ $con = mysql_connect($host,$uname,$pwd) or 	die("connection failed");
 mysql_select_db($db,$con) or die("db selection failed"); 
    	session_start();
 
-	$car5= $_REQUEST['txtcar4'];
-	$entry5 = $_REQUEST['txtentry4'];
-	$exit5 = $_REQUEST['txtexit4'];
+	$carnumber= $_REQUEST['txtcar4'];
+	$entrytime = $_REQUEST['txtentry4'];
+	$exittime = $_REQUEST['txtexit4'];
 	
- if($result=mysql_query("delete from demo where carNo='$car5' and Entrytime='$entry5' and Exittime='exit5'",$con))
+ if($result=mysql_query("delete from demo where carNo='$carnumber' and Entrytime='$entrytime' and Exittime='exittime'",$con))
 $cnt=mysql_affected_rows($con);
 if(!$cnt)
 {

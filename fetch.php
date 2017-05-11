@@ -16,7 +16,7 @@ if($rs)
     echo "Date:".$row["1"];
     echo "Entry timing:".$row["2"];
      echo "Exit timing:".$row["3"];
-     echo "slot number:".$show["4"];
+     echo "slot number:".$row["4"];
     }
 
 }
