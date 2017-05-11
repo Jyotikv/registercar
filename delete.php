@@ -47,6 +47,10 @@ else
 			echo "No slot is reserved for this user .Check the given information";
 		}
 	}
+	else
+	{
+		echo "No slot is reserved for this user .Check the given information";
+	}
 }
 mysql_close($connection);
 ?>
