@@ -20,7 +20,7 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="DELETE * FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'";
+    $strsql="DELETE FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
 	$cnt=mysql_affected_rows($connection);
