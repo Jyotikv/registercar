@@ -23,9 +23,8 @@ else
     $strsql="DELETE * FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
-	{
- 	$cnt=mysql_affected_rows($connection);
- 	}
+	$cnt=mysql_affected_rows($connection);
+ 	
  	if($cnt)
 	{
 		while ($row=mysql_fetch_array($rs))
