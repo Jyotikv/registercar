@@ -31,7 +31,7 @@ else
 	{
 		while ($row=mysql_fetch_array($rs))
     {
-    	echo $row["4"]."already allocated";
+    	echo $row["4"]."already allocated .";
 	}
 	}
 
