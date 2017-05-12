@@ -37,6 +37,21 @@ else
 
 	else
 	{
+		$strsql2="SELECT * FROM demo WHERE Entrytime='$entry1' or Exittime='$exit1' and slotNo='$slot3'";
+		$rs=mysql_query($strsql,$connection);
+		if($rs)
+		{
+ 		$cnt=mysql_affected_rows($connection);
+ 		}	
+ 		if($cnt)
+		{
+		while ($row=mysql_fetch_array($rs))
+    	{
+    	echo "already allocated .";
+		}
+		}
+		else
+		{
 		$duration=$exit1-$entry1;
 		if($entry1<$exit1 && $duration<=4)
 		{
@@ -75,6 +90,8 @@ else
 	echo "Duration must be below 4 hours";
 }
 	}
+}
+
 	else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
