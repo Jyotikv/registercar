@@ -37,7 +37,8 @@ else
 
 	else
 	{
-		$strsql2="SELECT * FROM demo WHERE Entrytime='$entry1' or Exittime='$exit1' and slotNo='$slot3'";
+		mysql_select_db("ad_254e48c6f6af81f");
+		$strsql2="SELECT * FROM demo WHERE slotNo='$slot3' and Entrytime='$entry1' or Exittime='$exit1'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		{
