@@ -31,7 +31,7 @@ else
 	{
 		while ($row=mysql_fetch_array($rs1))
     {
-    	echo $row["4"]."  already allocated .";
+    	echo $row["4"]."    slot is already allocated . Select other slot. ";
 	}
 	}
 
@@ -48,7 +48,7 @@ else
 		{
 		while ($row=mysql_fetch_array($rs2))
     	{
-    	echo "From entry time  :".$row["2"]."to exit time".$row["2"]."selcted".$row["2"]."slot is already reserved" ;
+    	echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
 		}
 		}
 		else
@@ -69,22 +69,22 @@ else
      if($duration==1)
 {
 	$res1=$duration*50;
-	echo "Your amount  is".$res1;
+	echo "Your amount  is ".$res1;
 }
 else if($duration==2)
 {
 	$res2=$duration*50;
-	echo "Your amount is".$res2;
+	echo "Your amount is ".$res2;
 }
 else if($duration==3)
 {
 	$res3=$duration*50;
-	echo "Your amount is".$res3;
+	echo "Your amount is ".$res3;
 }
 else if($duration==4)
 {
 	$res4=$duration*50;
-	echo "Your amount is".$res4;
+	echo "Your amount is ".$res4;
 }
 else
 {
