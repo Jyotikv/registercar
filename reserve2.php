@@ -31,7 +31,7 @@ else
 	{
 		while ($row=mysql_fetch_array($rs1))
     {
-    	echo $row["4"]."already allocated .";
+    	echo $row["4"]."  already allocated .";
 	}
 	}
 
@@ -48,7 +48,7 @@ else
 		{
 		while ($row=mysql_fetch_array($rs2))
     	{
-    	echo "already allocated .";
+    	echo "From entry time  :".$row["2"]."to exit time".$row["2"]."selcted".$row["2"]."slot is already reserved" ;
 		}
 		}
 		else
