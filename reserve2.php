@@ -91,13 +91,12 @@ else
 	echo "Duration must be below 4 hours";
 }
 	}
-}
-
 	else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
 	}
 	}
+}
 }
 
 mysql_close($connection);
