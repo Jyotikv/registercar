@@ -22,14 +22,14 @@ else
 {
     mysql_select_db("ad_254e48c6f6af81f");
     $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$entry1' and Exittime='$exit1' and slotNo='$slot3' ";
- 	$rs=mysql_query($strsql,$connection);
-	if($rs)
+ 	$rs1=mysql_query($strsql,$connection);
+	if($rs1)
 	{
  	$cnt=mysql_affected_rows($connection);
  	}
  	if($cnt)
 	{
-		while ($row=mysql_fetch_array($rs))
+		while ($row=mysql_fetch_array($rs1))
     {
     	echo $row["4"]."already allocated .";
 	}
@@ -38,14 +38,14 @@ else
 	else
 	{
 		$strsql2="SELECT * FROM demo WHERE Entrytime='$entry1' or Exittime='$exit1' and slotNo='$slot3'";
-		$rs=mysql_query($strsql,$connection);
-		if($rs)
+		$rs2=mysql_query($strsql2,$connection);
+		if($rs2)
 		{
  		$cnt=mysql_affected_rows($connection);
  		}	
  		if($cnt)
 		{
-		while ($row=mysql_fetch_array($rs))
+		while ($row=mysql_fetch_array($rs2))
     	{
     	echo "already allocated .";
 		}
