@@ -64,7 +64,7 @@ else
 					else
 					{
 						$duration=$resexit-$resentry;
-						if($resentry<$resexit && $duration<=4 && $resslot<4)
+						if($resentry<$resexit && $duration<=4 && $resslot<=4)
 						{
     						$query1="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
       						$result1=mysql_query($query1,$connection);
@@ -137,7 +137,7 @@ else
 		else
 		{
 		$duration=$resexit-$resentry;
-		if($resentry<$resexit && $duration<=4 && $resslot<4)
+		if($resentry<$resexit && $duration<=4 && $resslot<=4)
 		{
     	$query2="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
        $result2=mysql_query($query2,$connection);
@@ -200,7 +200,7 @@ else
 			{
  				$cnt6=mysql_affected_rows($connection);
  			}
- 			if($cnt6 && $resentry<$resexit && $resslot<4)
+ 			if($cnt6 && $resentry<$resexit && $resslot<=4)
 		{
 		while ($row=mysql_fetch_array($rs6))
   	  	{
@@ -259,7 +259,7 @@ else
 {
 	//echo  "on this date this slot is alraeady reserved for this timing"; 
 	$duration=$resexit-$resentry;
-		if($resentry<$resexit && $duration<=4 && $resslot<4)
+		if($resentry<$resexit && $duration<=4 && $resslot<=4)
 		{
     	$query3="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
        $result3=mysql_query($query3,$connection);
