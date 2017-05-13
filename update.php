@@ -1,10 +1,13 @@
 <?php
-
+//$carnum2=$_REQUEST['txtcar4'];
 $date6=$_REQUEST['txtdate5'];
-$entrytime6=$_REQUEST['txtentry5'];
-$exittime6=$_REQUEST['txtexit5'];
+$entry6=$_REQUEST['txtentry5'];
+$exit6=$_REQUEST['txtexit5'];
 $slot6=$_REQUEST['txtslot5'];
-$newexit6=$_REQUEST['txtnewexit5'];
+$new6=$_REQUEST['txtnewexit5'];
+
+
+
 
 
 //connect to mysql
@@ -21,33 +24,37 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
+    $strsql="SELECT * FROM demo WHERE crtDate='$date6' and Entrytime='$entry6' and Exittime='$exit6' and slotNo='$slot6'";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
 	{
-	$cnt=mysql_affected_rows($connection);
+ 	$cnt=mysql_affected_rows($connection);
  	}
- 	
  	if($cnt)
 	{
-    	while ($row=mysql_fetch_array($rs))
-    	{
-		$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
-		if($strsql2)
+		$query="update demo set Exittime='$new'";
+    	$result=mysql_query($query,$connection);
+    	if($rs)
 		{
-    	echo "you are successfully updated your timing ";	
-  	  	}
+			$cnt=mysql_affected_rows($connection);
+ 		}
+ 		if($cnt)
+		{
+			while ($row=mysql_fetch_array($rs))
+    		{
+    		echo "your timing is updated successfully" ;
+			}
+		}
+
 		else
 		{
-			echo "Not updated try agin";
+			echo "No slot is reserved for this user .Check the given information1";
 		}
-		}
-	}	
+	}
 	else
 	{
-		echo "chaeck you details";
+		echo "No slot is reserved for this user .Check the given information";
 	}
-
 }
 mysql_close($connection);
 ?>
