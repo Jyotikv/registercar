@@ -34,7 +34,7 @@ else
 	{
 		while($row=mysql_fetch_array($rs))
 		{
-		$query="update demo set Exittime='$newexit'";
+		$query="update demo set Exittime='$newexit' where crtDate='$newdate' and Entrytime='$oldentry' and Exittime='$oldexit' and slotNo='$newslot'";
     	$result=mysql_query($query,$connection);
     	if($result)
 		{
@@ -42,7 +42,7 @@ else
  		}
  		if($cnt2)
 		{
-			while ($row=mysql_fetch_array($reslut))
+			while ($row=mysql_fetch_array($result))
     		{
     		echo "your timing is updated successfully" ;
 			}
