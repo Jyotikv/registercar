@@ -1,10 +1,10 @@
 <?php
 
 $carno=$_REQUEST['txtcar'];
-$date1=$_REQUEST['txtdate'];
-$entry1=$_REQUEST['txtfrom'];
-$exit1=$_REQUEST['txtto'];
-$slot3=$_REQUEST['txtslotnum'];
+$resdate=$_REQUEST['txtdate'];
+$resentry=$_REQUEST['txtfrom'];
+$resexit=$_REQUEST['txtto'];
+$resslot=$_REQUEST['txtslotnum'];
 
 
 //connect to mysql
@@ -21,7 +21,7 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$entry1' and Exittime='$exit1' and slotNo='$slot3' ";
+    $strsql="SELECT * FROM demo WHERE crtDate='$resdate' and Entrytime='$resentry' and Exittime='$resexit' and slotNo='$resslot' ";
  	$rs1=mysql_query($strsql,$connection);
 	if($rs1)
 	{
@@ -39,7 +39,7 @@ else
 	{
 		
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$slot3' and  crtDate='$date1'";
+		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot' and crtDate='$resdate'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		$cnt1=mysql_affected_rows($connection);
@@ -48,13 +48,13 @@ else
 		{
 		while ($row=mysql_fetch_array($rs2))
     	{
-    		$strsql3="SELECT *from demo where Entrytime='$entry1' or Exittime='$exit1'";
+    		$strsql3="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     		$rs3=mysql_query($strsql3,$connection);
 			if($rs3)
 			{
  				$cnt2=mysql_affected_rows($connection);
  			}
- 			if($cnt2 && $entry1<$exit1)
+ 			if($cnt2 && $resentry<$resexit)
 		{
 		while ($row=mysql_fetch_array($rs3))
     	{
@@ -63,10 +63,10 @@ else
 		}
 		else
 		{
-		$duration=$exit1-$entry1;
-		if($entry1<$exit1 && $duration<=4)
+		$duration=$resexit-$resentry;
+		if($resentry<$resexit && $duration<=4)
 		{
-    	$query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
+    	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
        $result=mysql_query($query,$connection);
 	 	 if(!$result)
     {
@@ -111,26 +111,26 @@ else
 
 	else
 	{
-		$strsql4="SELECT *from demo where Entrytime='$entry1' or Exittime='$exit1'";
+		$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     		$rs4=mysql_query($strsql4,$connection);
 			if($rs4)
 			{
  				$cnt3=mysql_affected_rows($connection);
  			}
- 			if($cnt3 && $entry1<$exit1)
+ 			if($cnt3 && $resentry<$resexit)
 		{
 		while ($row=mysql_fetch_array($rs4))
     	{
-    		echo "This car number is already reserved at this time";
+    		echo "This car number is already reserved at this time3";
     	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
 		}
 		}
 		else
 		{
-		$duration=$exit1-$entry1;
-		if($entry1<$exit1 && $duration<=4)
+		$duration=$resexit-$resentry;
+		if($resentry<$resexit && $duration<=4)
 		{
-    	$query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
+    	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
        $result=mysql_query($query,$connection);
 	 	 if(!$result)
     {
