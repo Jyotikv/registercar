@@ -21,13 +21,13 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$resdate' and Entrytime='$resentry' and Exittime='$resexit' and slotNo='$resslot' ";
- 	$rs1=mysql_query($strsql,$connection);
+    $strsql1="SELECT * FROM demo WHERE crtDate='$resdate' and Entrytime='$resentry' and Exittime='$resexit' and slotNo='$resslot' ";
+ 	$rs1=mysql_query($strsql1,$connection);
 	if($rs1)
 	{
- 	$cnt=mysql_affected_rows($connection);
+ 	$cnt1=mysql_affected_rows($connection);
  	}
- 	if($cnt)
+ 	if($cnt1)
 	{
 		while ($row=mysql_fetch_array($rs1))
     {
@@ -39,24 +39,24 @@ else
 	{
 		
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot' and crtDate='$resdate'";
+		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
-		$cnt1=mysql_affected_rows($connection);
+		$cnt2=mysql_affected_rows($connection);
  			
- 		if($cnt1)
+ 		if($cnt2)
 		{
 			while ($row=mysql_fetch_array($rs2))
     		{
-    		$strsql3="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
-    		$rs3=mysql_query($strsql3,$connection);
-			if($rs3)
+    		$strsql2="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
+    		$rs2=mysql_query($strsql2,$connection);
+			if($rs2)
 			{
  				$cnt2=mysql_affected_rows($connection);
  			}
  			if($cnt2 && $resentry<$resexit)
 		{
-		while ($row=mysql_fetch_array($rs3))
+		while ($row=mysql_fetch_array($rs2))
     	{
     	echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
 		}
@@ -66,9 +66,9 @@ else
 		$duration=$resexit-$resentry;
 		if($resentry<$resexit && $duration<=4)
 		{
-    	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
-       $result=mysql_query($query,$connection);
-	 	 if(!$result)
+    	$query1="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
+       $result1=mysql_query($query1,$connection);
+	 	 if(!$result1)
     {
        echo "Reservation failed";
   	}
@@ -112,22 +112,22 @@ else
 	else
 	{
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql5="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
-		$rs5=mysql_query($strsql5,$connection);
-		if($rs5)
-		$cnt5=mysql_affected_rows($connection);
+		$strsql3="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
+		$rs3=mysql_query($strsql3,$connection);
+		if($rs3)
+		$cnt3=mysql_affected_rows($connection);
  			
- 		if($cnt5)
+ 		if($cnt3)
 		{
-			while ($row=mysql_fetch_array($rs5))
+			while ($row=mysql_fetch_array($rs3))
     		{
 			$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     		$rs4=mysql_query($strsql4,$connection);
 			if($rs4)
 			{
- 				$cnt3=mysql_affected_rows($connection);
+ 				$cnt4=mysql_affected_rows($connection);
  			}
- 			if($cnt3 && $resentry<$resexit)
+ 			if($cnt4 && $resentry<$resexit)
 		{
 		while ($row=mysql_fetch_array($rs4))
     	{
@@ -140,9 +140,9 @@ else
 		$duration=$resexit-$resentry;
 		if($resentry<$resexit && $duration<=4)
 		{
-    	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
-       $result=mysql_query($query,$connection);
-	 	 if(!$result)
+    	$query2="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
+       $result2=mysql_query($query2,$connection);
+	 	 if(!$result2)
     {
        echo "Reservation failed";
   	}
@@ -186,24 +186,24 @@ else
 	else
 	{
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql6="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
-		$rs6=mysql_query($strsql6,$connection);
-		if($rs6)
-		$nnt6=mysql_affected_rows($connection);
+		$strsql5="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
+		$rs5=mysql_query($strsql5,$connection);
+		if($rs5)
+		$cnt5=mysql_affected_rows($connection);
  			
- 		if($cnt6)
+ 		if($cnt5)
 		{
-			while ($row=mysql_fetch_array($rs6))
+			while ($row=mysql_fetch_array($rs5))
     		{
-			$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
-    		$rs4=mysql_query($strsql4,$connection);
-			if($rs4)
+			$strsql6="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
+    		$rs6=mysql_query($strsql6,$connection);
+			if($rs6)
 			{
- 				$cnt3=mysql_affected_rows($connection);
+ 				$cnt6=mysql_affected_rows($connection);
  			}
- 			if($cnt3 && $resentry<$resexit)
+ 			if($cnt6 && $resentry<$resexit)
 		{
-		while ($row=mysql_fetch_array($rs4))
+		while ($row=mysql_fetch_array($rs6))
     	{
     		echo "This car number is already reserved at this time3";
     	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
@@ -214,9 +214,9 @@ else
 			$duration=$resexit-$resentry;
 		if($resentry<$resexit && $duration<=4)
 		{
-    	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
-       $result=mysql_query($query,$connection);
-	 	 if(!$result)
+    	$query3="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
+       $result3=mysql_query($query3,$connection);
+	 	 if(!$result3)
     {
        echo "Reservation failed";
   	}
