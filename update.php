@@ -35,11 +35,13 @@ else
 		$cnt2=mysql_affected_rows($connection);
  	
  		if($cnt2)
-	
+		{
 			while($row=mysql_fetch_array($rs2))
 		{
     	echo "you are successfully updated your timing ";
 		}
+		}
+
 		else
 		{
 			echo "Not updated try agin";
