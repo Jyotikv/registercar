@@ -30,12 +30,25 @@ else
 	{
 		while($row=mysql_fetch_array($rs))
 		{
-    	$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
+    	$strsql2="UPDATE demo SET Exittime='$newexit6' WHERE Exittime='$exittime6'";
+    	$rs2=mysql_query($strsql2,$connection);
+	if($rs2)
+	$cnt2=mysql_affected_rows($connection);
+ 	
+ 	if($cnt2)
+	{
+		while($row=mysql_fetch_array($rs2))
+		{
     	echo "you are successfully updated your timing ";
 		}
 	}
+	else
+	{
+		echo "Not updated";
+	}
 
-
+}
+}
 
 	else
 		{

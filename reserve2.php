@@ -105,13 +105,28 @@ else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
 	}
-
 	}
 	}
 }
 
 	else
 	{
+		$strsql4="SELECT *from demo where Entrytime='$entry1' or Exittime='$exit1'";
+    		$rs4=mysql_query($strsql4,$connection);
+			if($rs4)
+			{
+ 				$cnt3=mysql_affected_rows($connection);
+ 			}
+ 			if($cnt3 && $entry1<$exit1)
+		{
+		while ($row=mysql_fetch_array($rs4))
+    	{
+    		echo "This car number is already reserved at this time";
+    	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
+		}
+		}
+		else
+		{
 		$duration=$exit1-$entry1;
 		if($entry1<$exit1 && $duration<=4)
 		{
@@ -154,12 +169,10 @@ else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
 	}
+}
+
 	}
 }
 }
-
-
-
-
 mysql_close($connection);
 ?>
