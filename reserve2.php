@@ -39,7 +39,7 @@ else
 	{
 		
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE slotNo='$slot3' and  crtDate='$date1'";
+		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$slot3' and  crtDate='$date1'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		$cnt1=mysql_affected_rows($connection);
