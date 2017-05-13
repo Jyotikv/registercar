@@ -46,8 +46,8 @@ else
  			
  		if($cnt1)
 		{
-		while ($row=mysql_fetch_array($rs2))
-    	{
+			while ($row=mysql_fetch_array($rs2))
+    		{
     		$strsql3="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     		$rs3=mysql_query($strsql3,$connection);
 			if($rs3)
@@ -111,7 +111,17 @@ else
 
 	else
 	{
-		$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
+		mysql_select_db("ad_254e48c6f6af81f");
+		$strsql5="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
+		$rs5=mysql_query($strsql5,$connection);
+		if($rs5)
+		$cnt5=mysql_affected_rows($connection);
+ 			
+ 		if($cnt5)
+		{
+			while ($row=mysql_fetch_array($rs5))
+    		{
+			$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     		$rs4=mysql_query($strsql4,$connection);
 			if($rs4)
 			{
@@ -172,6 +182,12 @@ else
 }
 
 	}
+	}
+	else
+	{
+		echo "check the detalis";
+	}
+}
 }
 }
 mysql_close($connection);
