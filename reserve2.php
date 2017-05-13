@@ -23,70 +23,70 @@ else
     mysql_select_db("ad_254e48c6f6af81f");
     $strsql1="SELECT * FROM demo WHERE crtDate='$resdate' and Entrytime='$resentry' and Exittime='$resexit' and slotNo='$resslot' ";
  	$rs1=mysql_query($strsql1,$connection);
-	if($rs1)
-	{
- 	$cnt1=mysql_affected_rows($connection);
- 	}
- 	if($cnt1)
-	{
-		while ($row=mysql_fetch_array($rs1))
-    {
-    	echo $row["4"]."    slot is already allocated . Select other slot. ";
-	}
-	}
+		if($rs1)
+		{
+ 			$cnt1=mysql_affected_rows($connection);
+ 		}
+ 		if($cnt1)
+		{
+			while ($row=mysql_fetch_array($rs1))
+  		 	{
+    			echo $row["4"]."    slot is already allocated . Select other slot. ";
+			}
+		}
 
-	else
-	{
-		
-		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot'";
-		$rs2=mysql_query($strsql2,$connection);
-		if($rs2)
-		$cnt2=mysql_affected_rows($connection);
- 			
- 		if($cnt2)
-		{
-			while ($row=mysql_fetch_array($rs2))
-    		{
-    		$strsql2="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
-    		$rs2=mysql_query($strsql2,$connection);
-			if($rs2)
-			{
- 				$cnt2=mysql_affected_rows($connection);
- 			}
- 			if($cnt2 && $resentry<$resexit)
-		{
-		while ($row=mysql_fetch_array($rs2))
-    	{
-    	echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
-		}
-		}
 		else
 		{
-		$duration=$resexit-$resentry;
-		if($resentry<$resexit && $duration<=4)
-		{
-    	$query1="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
-       $result1=mysql_query($query1,$connection);
-	 	 if(!$result1)
-    {
-       echo "Reservation failed";
-  	}
-    else
-    {
-        echo "Reserved succefully .";
-    }
-     if($duration==1)
-{
-	$res1=$duration*50;
-	echo "Your amount  is ".$res1;
-}
-else if($duration==2)
-{
-	$res2=$duration*50;
-	echo "Your amount is ".$res2;
-}
-else if($duration==3)
+		
+			mysql_select_db("ad_254e48c6f6af81f");
+			$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot'";
+			$rs2=mysql_query($strsql2,$connection);
+			if($rs2)
+			$cnt2=mysql_affected_rows($connection);
+ 			
+ 			if($cnt2)
+			{
+				while ($row=mysql_fetch_array($rs2))
+    			{
+    				$strsql2="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
+    				$rs2=mysql_query($strsql2,$connection);
+					if($rs2)
+					{
+ 						$cnt2=mysql_affected_rows($connection);
+ 					}
+ 					if($cnt2 && $resentry<$resexit)
+					{
+						while ($row=mysql_fetch_array($rs2))
+ 				   		{
+    						echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
+						}
+					}
+					else
+					{
+						$duration=$resexit-$resentry;
+						if($resentry<$resexit && $duration<=4)
+						{
+    						$query1="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
+      						$result1=mysql_query($query1,$connection);
+	 	 					if(!$result1)
+    						{
+      							 echo "Reservation failed";
+  							}
+						    else
+   						 	{
+			        			echo "Reserved succefully .";
+   	 						}
+     						if($duration==1)
+							{
+								$res1=$duration*50;
+								echo "Your amount  is ".$res1;
+							}
+							else if($duration==2)
+							{
+								$res2=$duration*50;
+								echo "Your amount is ".$res2;
+							}	
+							else if($duration==3)
 {
 	$res3=$duration*50;
 	echo "Your amount is ".$res3;
@@ -258,7 +258,52 @@ else
 }
 else
 {
-	echo  "on this date this slot is alraeady reserved for this timing"; 
+	//echo  "on this date this slot is alraeady reserved for this timing"; 
+	$duration=$resexit-$resentry;
+		if($resentry<$resexit && $duration<=4)
+		{
+    	$query3="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
+       $result3=mysql_query($query3,$connection);
+	 	 if(!$result3)
+    {
+       echo "Reservation failed";
+  	}
+    else
+    {
+        echo "Reserved succefully .";
+    }
+     if($duration==1)
+{
+	$res1=$duration*50;
+	echo "Your amount  is ".$res1;
+}
+else if($duration==2)
+{
+	$res2=$duration*50;
+	echo "Your amount is ".$res2;
+}
+else if($duration==3)
+{
+	$res3=$duration*50;
+	echo "Your amount is ".$res3;
+}
+else if($duration==4)
+{
+	$res4=$duration*50;
+	echo "Your amount is ".$res4;
+}
+else
+{
+	echo "Duration must be below 4 hours";
+}
+	}
+	else
+	{
+		echo "Entry time must be less than exit time and duration must be below 4 hours";
+	}
+}
+	}
+}
 }
 }
 }
