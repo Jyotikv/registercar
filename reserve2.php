@@ -44,7 +44,7 @@ else
 		{
  		$cnt=mysql_affected_rows($connection);
  		}	
- 		if($cnt)
+ 		if($cnt && $entry1<$exit1)
 		{
 		while ($row=mysql_fetch_array($rs2))
     	{

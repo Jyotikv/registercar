@@ -12,6 +12,7 @@
 <a href="/fetch.html"><h3>My booking details</h3></a></br>
 <a href="/delete.html"><h3>Delete</h3></a></br>
 <a href="/allocation.html"><h3>Allocation</h3></a></br>
+<a href="/update.html"><h3>Update exit time</h3></a></br>
 <a href="/about.html"><h3>About</h3></a></br>
 </fieldset>
   </center>
