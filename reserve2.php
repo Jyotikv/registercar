@@ -87,20 +87,20 @@ else
 								echo "Your amount is ".$res2;
 							}	
 							else if($duration==3)
-{
-	$res3=$duration*50;
-	echo "Your amount is ".$res3;
-}
-else if($duration==4)
-{
-	$res4=$duration*50;
-	echo "Your amount is ".$res4;
-}
-else
-{
-	echo "Duration must be below 4 hours";
-}
-	}
+							{
+								$res3=$duration*50;
+								echo "Your amount is ".$res3;
+							}
+							else if($duration==4)
+							{
+								$res4=$duration*50;
+								echo "Your amount is ".$res4;
+							}
+							else
+							{
+								echo "Duration must be below 4 hours";
+							}
+				}
 	else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
@@ -131,9 +131,8 @@ else
 		{
 		while ($row=mysql_fetch_array($rs4))
     	{
-    		echo "This car number is already reserved at this time3";
-    	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
-		}
+    		echo "This car number is already reserved at this time ";
+    	}
 		}
 		else
 		{
@@ -204,9 +203,9 @@ else
  			if($cnt6 && $resentry<$resexit)
 		{
 		while ($row=mysql_fetch_array($rs6))
-    	{
-    		echo "This car number is already reserved at this time3";
-    	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
+  	  	{
+    		echo "Car number is already reserved .Check other slot";
+    		
 		}
 		}
 		else
