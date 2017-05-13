@@ -21,22 +21,14 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * from demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
- 	$rs=mysql_query($strsql,$connection);
-	if($rs)
-	$cnt=mysql_affected_rows($connection);
- 	
- 	if($cnt)
-	{
-		while($row=mysql_fetch_array($rs))
-		{
-    	$strsql2="UPDATE demo SET Exittime='$newexit6' WHERE Exittime='$exittime6'";
+    
+		$strsql2="UPDATE demo SET Exittime='$newexit6' WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6'";
     	$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		$cnt2=mysql_affected_rows($connection);
  	
  		if($cnt2)
-		{
+	
 			while($row=mysql_fetch_array($rs2))
 		{
     	echo "you are successfully updated your timing ";
@@ -48,15 +40,5 @@ else
 	}
 
 }
-}
-
-	else
-		{
-    		echo "Check the information once again";
-		}
-	
-}
-
-	
 mysql_close($connection);
 ?>
