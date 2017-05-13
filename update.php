@@ -1,10 +1,10 @@
 <?php
 //$carnum2=$_REQUEST['txtcar4'];
-$date6=$_REQUEST['txtdate5'];
-$entry6=$_REQUEST['txtentry5'];
-$exit6=$_REQUEST['txtexit5'];
-$slot6=$_REQUEST['txtslot5'];
-$new6=$_REQUEST['txtnewexit5'];
+$newdate=$_REQUEST['txtdate5'];
+$oldentry=$_REQUEST['txtentry5'];
+$oldexit=$_REQUEST['txtexit5'];
+$newslot=$_REQUEST['txtslot5'];
+$newexit=$_REQUEST['txtnewexit5'];
 
 
 
@@ -24,7 +24,7 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date6' and Entrytime='$entry6' and Exittime='$exit6' and slotNo='$slot6'";
+    $strsql="SELECT * FROM demo WHERE crtDate='$newdate' and Entrytime='$oldentry' and Exittime='$oldexit' and slotNo='$newslot'";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
 	{
@@ -32,7 +32,7 @@ else
  	}
  	if($cnt)
 	{
-		$query="update demo set Exittime='$new'";
+		$query="update demo set Exittime='$newexit'";
     	$result=mysql_query($query,$connection);
     	if($rs)
 		{
