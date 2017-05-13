@@ -24,17 +24,20 @@ else
     $strsql="SELECT *from demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
+	{
 	$cnt=mysql_affected_rows($connection);
- 	
+ 	}
  	
  	if($cnt)
 	{
-    
+    	while ($row=mysql_fetch_array($rs1))
+    	{
 		$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
 		if($strsql2)
 		{
     	echo "you are successfully updated your timing ";	
-    	}
+  	  	}
+    	
 
 
 		else
@@ -42,6 +45,8 @@ else
 			echo "Not updated try agin";
 		}
 	}
+}
+
 
 	else
 	{
