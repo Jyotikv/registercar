@@ -185,8 +185,7 @@ else
 	}
 	else
 	{
-		{
-		$duration=$resexit-$resentry;
+			$duration=$resexit-$resentry;
 		if($resentry<$resexit && $duration<=4)
 		{
     	$query="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
