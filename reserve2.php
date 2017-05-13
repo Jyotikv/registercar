@@ -56,10 +56,9 @@ else
  					}
  					if($cnt2 && $resentry<$resexit)
 					{
-						while ($row=mysql_fetch_array($rs2))
- 				   		{
+						
     						echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
-						}
+						
 					}
 					else
 					{
@@ -129,10 +128,9 @@ else
  			}
  			if($cnt4 && $resentry<$resexit && $resslot<4)
 		{
-		while ($row=mysql_fetch_array($rs4))
-    	{
+		
     		echo "This car number is already reserved at this time ";
-    	}
+    	
 		}
 		else
 		{
@@ -202,11 +200,10 @@ else
  			}
  			if($cnt6 && $resentry<$resexit && $resslot<=4)
 		{
-		while ($row=mysql_fetch_array($rs6))
-  	  	{
+		
     		echo "Car number is already reserved .Check other slot";
     		
-		}
+		
 		}
 		else
 		{
