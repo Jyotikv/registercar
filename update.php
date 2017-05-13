@@ -30,7 +30,7 @@ else
 	{
  	$cnt=mysql_affected_rows($connection);
  	}
- 	if($cnt)
+ 	if($cnt && $newexit<$oldexit && $newexit>$oldentry)
 	{
 		while($row=mysql_fetch_array($rs))
 		{
@@ -42,15 +42,11 @@ else
  		}
  		if($cnt2)
 		{
-			//while ($row=mysql_fetch_array($result))
-    		//{
-    		echo "your timing is updated successfully" ;
-			//}
+			echo "your timing is updated successfully" ;
 		}
-
 		else
 		{
-			echo "No slot is reserved for this user .Check the given information1";
+			echo "Check new exit time.";
 		}
 		}
 	}
