@@ -31,31 +31,18 @@ else
 	{
 		while ($row=mysql_fetch_array($rs))
     {
-    	$strsql2="UPDATE demo SET Exittime='$newexit6'";
-    	$rs2=mysql_query($strsql2,$connection);
-		if($rs2)
-		{
-		 	$cnt=mysql_affected_rows($connection);
-	 	}
- 		if($cnt)
-		{
-			while ($row=mysql_fetch_array($rs2))
-	    {
-    		echo "you are successfully updated your timing ";
-		}
-		}
+    	$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
+    	echo "you are successfully updated your timing ";
+	}
+	}
 
-		else
+	else
 		{
     		echo "Check the information once again";
 		}
-	}
-	}
-	else 
-	{
-		echo "Check the information once again";
-		
-	}
+	
 }
+
+	
 mysql_close($connection);
 ?>
