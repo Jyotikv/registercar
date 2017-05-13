@@ -42,10 +42,10 @@ else
  		}
  		if($cnt2)
 		{
-			while ($row=mysql_fetch_array($result))
-    		{
+			//while ($row=mysql_fetch_array($result))
+    		//{
     		echo "your timing is updated successfully" ;
-			}
+			//}
 		}
 
 		else
