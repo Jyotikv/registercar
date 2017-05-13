@@ -21,7 +21,7 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT *from demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
+    $strsql="SELECT * FROM demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
 	{
@@ -30,24 +30,19 @@ else
  	
  	if($cnt)
 	{
-    	while ($row=mysql_fetch_array($rs1))
+    	while ($row=mysql_fetch_array($rs))
     	{
 		$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
 		if($strsql2)
 		{
     	echo "you are successfully updated your timing ";	
   	  	}
-    	
-
-
 		else
 		{
 			echo "Not updated try agin";
 		}
-	}
-}
-
-
+		}
+	}	
 	else
 	{
 		echo "chaeck you details";
