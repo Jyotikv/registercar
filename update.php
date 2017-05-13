@@ -31,7 +31,7 @@ else
 	{
 		while ($row=mysql_fetch_array($rs))
     {
-    	$strsql2="UPDATE demo SET Exittime='$newexit6";
+    	$strsql2="UPDATE demo SET Exittime='$newexit6'";
     	$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		{
