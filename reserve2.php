@@ -185,6 +185,32 @@ else
 	}
 	else
 	{
+		mysql_select_db("ad_254e48c6f6af81f");
+		$strsql6="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
+		$rs6=mysql_query($strsql6,$connection);
+		if($rs6)
+		$nnt6=mysql_affected_rows($connection);
+ 			
+ 		if($cnt6)
+		{
+			while ($row=mysql_fetch_array($rs6))
+    		{
+			$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
+    		$rs4=mysql_query($strsql4,$connection);
+			if($rs4)
+			{
+ 				$cnt3=mysql_affected_rows($connection);
+ 			}
+ 			if($cnt3 && $resentry<$resexit)
+		{
+		while ($row=mysql_fetch_array($rs4))
+    	{
+    		echo "This car number is already reserved at this time3";
+    	//echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
+		}
+		}
+		else
+		{
 			$duration=$resexit-$resentry;
 		if($resentry<$resexit && $duration<=4)
 		{
@@ -230,6 +256,7 @@ else
 }
 	}
 }}
+}
 }
 mysql_close($connection);
 ?>
