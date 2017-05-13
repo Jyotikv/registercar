@@ -24,9 +24,8 @@ else
     $strsql="SELECT * from demo WHERE crtDate='$date6' and Entrytime='$entrytime6' and Exittime='$exittime6' and slotNo='$slot6' ";
  	$rs=mysql_query($strsql,$connection);
 	if($rs)
-	{
- 	$cnt=mysql_affected_rows($connection);
- 	}
+	$cnt=mysql_affected_rows($connection);
+ 	
  	if($cnt)
 	{
 		while($row=mysql_fetch_array($rs))

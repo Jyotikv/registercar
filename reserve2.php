@@ -39,13 +39,12 @@ else
 	{
 		
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE crtDate='$date1'and slotNo='$slot3'";
+		$strsql2="SELECT * FROM demo WHERE slotNo='$slot3' and  crtDate='$date1'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
-		{
- 		$cnt=mysql_affected_rows($connection);
- 		}	
- 		if($cnt)
+		$cnt1=mysql_affected_rows($connection);
+ 			
+ 		if($cnt1)
 		{
 		while ($row=mysql_fetch_array($rs2))
     	{
@@ -53,9 +52,9 @@ else
     		$rs3=mysql_query($strsql3,$connection);
 			if($rs3)
 			{
- 				$cnt=mysql_affected_rows($connection);
+ 				$cnt2=mysql_affected_rows($connection);
  			}
- 			if($cnt && $entry1<$exit1)
+ 			if($cnt2 && $entry1<$exit1)
 		{
 		while ($row=mysql_fetch_array($rs3))
     	{
