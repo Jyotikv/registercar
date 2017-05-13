@@ -32,15 +32,17 @@ else
  	}
  	if($cnt)
 	{
+		while($row=mysql_fetch_array($rs))
+		{
 		$query="update demo set Exittime='$newexit'";
     	$result=mysql_query($query,$connection);
-    	if($rs)
+    	if($result)
 		{
-			$cnt=mysql_affected_rows($connection);
+			$cnt2=mysql_affected_rows($connection);
  		}
- 		if($cnt)
+ 		if($cnt2)
 		{
-			while ($row=mysql_fetch_array($rs))
+			while ($row=mysql_fetch_array($reslut))
     		{
     		echo "your timing is updated successfully" ;
 			}
@@ -50,7 +52,9 @@ else
 		{
 			echo "No slot is reserved for this user .Check the given information1";
 		}
+		}
 	}
+
 	else
 	{
 		echo "No slot is reserved for this user .Check the given information";
