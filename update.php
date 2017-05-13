@@ -29,10 +29,13 @@ else
  	}
  	if($cnt)
 	{
-		
+		while($row=mysql_fetch_array($rs))
+		{
     	$strsql2=mysql_query("UPDATE demo SET Exittime='$newexit6'",$connection);
     	echo "you are successfully updated your timing ";
+		}
 	}
+
 
 
 	else

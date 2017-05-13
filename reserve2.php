@@ -37,16 +37,27 @@ else
 
 	else
 	{
+		
 		mysql_select_db("ad_254e48c6f6af81f");
-		$strsql2="SELECT * FROM demo WHERE crtDate='$date1'and slotNo='$slot3' and Entrytime='$entry1' or Exittime='$exit1'";
+		$strsql2="SELECT * FROM demo WHERE crtDate='$date1'and slotNo='$slot3'";
 		$rs2=mysql_query($strsql2,$connection);
 		if($rs2)
 		{
  		$cnt=mysql_affected_rows($connection);
  		}	
- 		if($cnt && $entry1<$exit1)
+ 		if($cnt)
 		{
 		while ($row=mysql_fetch_array($rs2))
+    	{
+    		$strsql3="SELECT *from demo where Entrytime='$entry1' or Exittime='$exit1'";
+    		$rs3=mysql_query($strsql3,$connection);
+			if($rs3)
+			{
+ 				$cnt=mysql_affected_rows($connection);
+ 			}
+ 			if($cnt && $entry1<$exit1)
+		{
+		while ($row=mysql_fetch_array($rs3))
     	{
     	echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
 		}
@@ -95,9 +106,61 @@ else
 	{
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
 	}
+
+	}
+	}
+}
+
+	else
+	{
+		$duration=$exit1-$entry1;
+		if($entry1<$exit1 && $duration<=4)
+		{
+    	$query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
+       $result=mysql_query($query,$connection);
+	 	 if(!$result)
+    {
+       echo "Reservation failed";
+  	}
+    else
+    {
+        echo "Reserved succefully .";
+    }
+     if($duration==1)
+{
+	$res1=$duration*50;
+	echo "Your amount  is ".$res1;
+}
+else if($duration==2)
+{
+	$res2=$duration*50;
+	echo "Your amount is ".$res2;
+}
+else if($duration==3)
+{
+	$res3=$duration*50;
+	echo "Your amount is ".$res3;
+}
+else if($duration==4)
+{
+	$res4=$duration*50;
+	echo "Your amount is ".$res4;
+}
+else
+{
+	echo "Duration must be below 4 hours";
+}
+	}
+	else
+	{
+		echo "Entry time must be less than exit time and duration must be below 4 hours";
+	}
 	}
 }
 }
+
+
+
 
 mysql_close($connection);
 ?>
