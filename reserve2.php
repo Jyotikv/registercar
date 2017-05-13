@@ -255,7 +255,13 @@ else
 	}
 }
 	}
-}}
+}
+else
+{
+	echo  "on this date this slot is alraeady reserved for this timing"; 
+}
+}
+}
 }
 }
 mysql_close($connection);
