@@ -306,8 +306,6 @@ else
 }
 }
 }
-}
-}
-}
+
 mysql_close($connection);
 ?>
