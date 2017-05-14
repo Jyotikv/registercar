@@ -131,7 +131,7 @@ else
 				if($rs4)
 				{
  					$cnt4=mysql_affected_rows($connection);
- 				}
+ 				
  				if($cnt4 && $resentry<$resexit && $resslot<4)
 				{
 					while ($row=mysql_fetch_array($rs4))
@@ -140,6 +140,8 @@ else
 					}	    	
 
 				}
+				}	
+
 				else
 				{
 					$duration=$resexit-$resentry;
@@ -212,7 +214,7 @@ else if
 				if($rs6)
 			{
  				$cnt6=mysql_affected_rows($connection);
- 			}
+ 			
  			if($cnt6 && $resentry<$resexit && $resslot<=4)
 			{
 				while ($row=mysql_fetch_array($rs6))
@@ -220,6 +222,8 @@ else if
     				echo "This slot is already reserved at this timing .Check other slot";
 				}	    		
 			}
+		}
+
 			else
 			{
 				$duration=$resexit-$resentry;
@@ -292,7 +296,7 @@ else if
 				if($rs8)
 			{
  				$cnt8=mysql_affected_rows($connection);
- 			}
+ 			
  			if($cnt8 && $resentry<$resexit && $resslot<=4)
 			{
 				while ($row=mysql_fetch_array($rs8))
@@ -300,6 +304,8 @@ else if
     				echo "This slot is already reserved at this timing .Check other slot";
 				}	    		+
 			}
+		}
+
 			else
 			{
 			$duration=$resexit-$resentry;
