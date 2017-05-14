@@ -45,6 +45,7 @@ else
 			$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot'";
 			$rs2=mysql_query($strsql2,$connection);
 			if($rs2)
+			{
 			$cnt2=mysql_affected_rows($connection);
  			
  			if($cnt2)
@@ -110,11 +111,13 @@ else
 						else
 							{
 									echo "Entry time must be less than exit time and duration must be below 4 hours";
-							}+
+							}
 				}
 
 			}
 		}
+	}
+
 
 	else 
 	{
@@ -122,6 +125,7 @@ else
 		$strsql3="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
 		$rs3=mysql_query($strsql3,$connection);
 		if($rs3)
+		{
 		$cnt3=mysql_affected_rows($connection);
  			
  		if($cnt3)
@@ -192,12 +196,15 @@ else
 
 		}
 	} 
+}
+
 	else 
 	{
 		mysql_select_db("ad_254e48c6f6af81f");
 		$strsql5="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
 		$rs5=mysql_query($strsql5,$connection);
 		if($rs5)
+		{
 		$cnt5=mysql_affected_rows($connection);
  			
  		if($cnt5)
@@ -268,6 +275,8 @@ else
 			}
 			}
 		}
+	}
+
 		else
 		{
 		mysql_select_db("ad_254e48c6f6af81f");
