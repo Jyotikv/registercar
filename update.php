@@ -42,7 +42,34 @@ else
  		}
  		if($cnt2)
 		{
+			
 			echo "your timing is updated successfully" ;
+			$duration=$oldentry-$newexit;
+							if($duration==1)
+							{
+								$res1=$duration*50;
+								echo " Now Your total amount  is ".$res1;
+							}
+							else if($duration==2)
+							{
+								$res2=$duration*50;
+								echo "Now your total amount is ".$res2;
+							}	
+							else if($duration==3)
+							{
+								$res3=$duration*50;
+								echo "Now your total  amount is ".$res3;
+							}
+							else if($duration==4)
+							{
+								$res4=$duration*50;
+								echo " NOw your amount total is ".$res4;
+							}
+							else
+							{
+								echo "Duration must be below 4 hours";
+							}
+		
 		}
 		else
 		{
@@ -53,7 +80,7 @@ else
 
 	else
 	{
-		echo "No slot is reserved for this user .Check the given information";
+		echo "No slot is reserved for this user . Check the given information";
 	}
 }
 mysql_close($connection);
