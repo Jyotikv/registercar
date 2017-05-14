@@ -32,7 +32,7 @@ else
 			while ($row=mysql_fetch_array($rs1))
   		 	{
     			echo $row["4"]."    slot is already allocated . Select other slot. ";
-    			exit(0);
+    			//exit(0);
 			}
 		}
 	
@@ -49,8 +49,7 @@ else
  			
  			if($cnt2)
 			{
-				while ($row=mysql_fetch_array($rs2))
-    			{
+		
     				$strsql9="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     				$rs9=mysql_query($strsql9,$connection);
 					if($rs9)
@@ -59,10 +58,9 @@ else
  					
  					if($cnt9 && $resentry<$resexit &&$resslot<=4)
 					{
-							while ($row=mysql_fetch_array($rs9))
-							{
+							
     						echo "From entry time  :".$row["2"]." to exit time :".$row["3"]." selcted ".$row["4"]." slot is already reserved" ;
-							}
+							
 
 					}
 					else
@@ -119,7 +117,7 @@ else
 			
 		}
 	}
-}
+
 
 	else 
 {
@@ -132,8 +130,7 @@ else
  			
  		if($cnt3)
 		{
-			while ($row=mysql_fetch_array($rs3))
-    		{
+			
 				$strsql4="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     			$rs4=mysql_query($strsql4,$connection);
 				if($rs4)
@@ -142,10 +139,9 @@ else
  				
  				if($cnt4 && $resentry<$resexit && $resslot<=4)
 				{
-					while ($row=mysql_fetch_array($rs4))
-					{
+					
     					echo "This car number is already reserved on this date at this timing ";
-					}	    	
+						    	
 
 				}
 				else
@@ -200,7 +196,7 @@ else
 			echo "Not available entry time and exit time are matching";
 		}
 	}
-}
+
 
 	else
 	{
@@ -218,8 +214,7 @@ else
  			
  		if($cnt5)
 		{
-			while ($row=mysql_fetch_array($rs5))
-    		{
+			
 				$strsql6="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     			$rs6=mysql_query($strsql6,$connection);
 				if($rs6)
@@ -227,10 +222,9 @@ else
  				$cnt6=mysql_affected_rows($connection);
  				if($cnt6 && $resentry<$resexit && $resslot<=4)
 				{
-					while ($row=mysql_fetch_array($rs6))
-					{
+					
     					echo "This slot is already reserved at this timing .Check other slot";
-					}	    		
+					    		
 				}
 				else
 				{
@@ -285,9 +279,7 @@ else
 				echo "entry time exit time are matching for this car ";
 			}
 		}
-	}
-
-		else
+	else
 		{
 			echo "Not available car on this slot";
 		}
@@ -303,8 +295,7 @@ else
  			
  		if($cnt7)
 		{
-			while ($row=mysql_fetch_array($rs7))
-    		{
+			
 				$strsql8="SELECT *from demo where Entrytime='$resentry' or Exittime='$resexit'";
     			$rs8=mysql_query($strsql8,$connection);
 				if($rs8)
@@ -312,10 +303,9 @@ else
  				$cnt8=mysql_affected_rows($connection);
  				if($cnt8 && $resentry<$resexit && $resslot<=4)
 				{
-				while ($row=mysql_fetch_array($rs8))
-				{
+				
     				echo "This slot is already reserved at this timing .Check other slot";
-				}	    		
+					    		
 				}
 				
 				else
@@ -369,8 +359,6 @@ else
 			echo "entry time and exit time are same for this car";
 		}
 		}
-	}
-
 		else
 		{
 			echo " no car  available can insert ";
