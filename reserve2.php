@@ -106,7 +106,7 @@ else
 						else
 							{
 									echo "Entry time must be less than exit time and duration must be below 4 hours";
-							}
+							}+
 				}
 
 			}
@@ -334,48 +334,7 @@ else
 }
 else
 {
-	$duration=$resexit-$resentry;
-			if($resentry<$resexit && $duration<=4 && $resslot<=4)
-		{
-    		$query3="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
-       		$result3=mysql_query($query3,$connection);
-	 	 	if(!$result3)
-    {
-       echo "Reservation failed";
-  	}
-    else
-    {
-        echo "Reserved succefully .";
-    }
-     if($duration==1)
-{
-	$res1=$duration*50;
-	echo "Your amount  is ".$res1;
-}
-else if($duration==2)
-{
-	$res2=$duration*50;
-	echo "Your amount is ".$res2;
-}
-else if($duration==3)
-{
-	$res3=$duration*50;
-	echo "Your amount is ".$res3;
-}
-else if($duration==4)
-{
-	$res4=$duration*50;
-	echo "Your amount is ".$res4;
-}
-else
-{
-	echo "Duration must be below 4 hours";
-}
-	}
-	else
-	{
-		echo "Entry time must be less than exit time and duration must be below 4 hours";
-	}
+	echo "this car number is already reserved";
 }
 	}
 }
