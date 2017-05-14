@@ -119,7 +119,9 @@ else
 			
 		}
 	}
-	else if
+}
+
+	else 
 {
 		mysql_select_db("ad_254e48c6f6af81f");
 		$strsql3="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
@@ -205,7 +207,7 @@ else
 		echo "this car is Not avaiable on this date";
 	}
 }
-	else if 
+else 
 	{
 		mysql_select_db("ad_254e48c6f6af81f");
 		$strsql5="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
@@ -290,7 +292,6 @@ else
 			echo "Not available car on this slot";
 		}
 	}
-
 		else 
 		{
 		mysql_select_db("ad_254e48c6f6af81f");
@@ -317,8 +318,8 @@ else
 				}	    		
 				}
 				
-			else
-			{
+				else
+				{
 			$duration=$resexit-$resentry;
 			if($resentry<$resexit && $duration<=4 && $resslot<=4)
 			{
@@ -365,14 +366,14 @@ else
 		}
 		else
 		{
-			echo "entry time and exit time 3";
+			echo "entry time and exit time are same for this car";
 		}
 		}
 	}
 
 		else
 		{
-			echo " no car  available";
+			echo " no car  available can insert ";
 		}
 		}
 
@@ -423,23 +424,10 @@ else
 		}
 		}
 }
-else 
-{
-	echo "car number and date are matching";
-}
- 
-}
-else
-{
-	echo "car number slot number are already reserved";
-}
-}
-else
-{
-	echo " car number and slot number are matching";
 }
 }
 }
+
 else
 {
 	$duration=$resexit-$resentry;
