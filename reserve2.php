@@ -32,6 +32,7 @@ else
 			while ($row=mysql_fetch_array($rs1))
   		 	{
     			echo $row["4"]."    slot is already allocated . Select other slot. ";
+    			exit(0);
 			}
 		}
 
