@@ -418,7 +418,8 @@ else
 
 else
 {
-	$duration=$resexit-$resentry;
+			mysql_select_db("ad_254e48c6f6af81f");
+			$duration=$resexit-$resentry;
 			if($resentry<$resexit && $duration<=4 && $resslot<=4)
 			{
     		$query8="insert into demo values('$carno','$resdate','$resentry','$resexit','$resslot')";
