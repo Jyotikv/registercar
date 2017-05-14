@@ -26,7 +26,7 @@ else
 		if($rs1)
 		{
  			$cnt1=mysql_affected_rows($connection);
- 		}
+ 		
  		if($cnt1)
 		{
 			while ($row=mysql_fetch_array($rs1))
@@ -35,7 +35,8 @@ else
     			exit(0);
 			}
 		}
-		
+	}
+
 		else
 		{
 		
@@ -43,6 +44,7 @@ else
 			$strsql2="SELECT * FROM demo WHERE carNo='$carno' and slotNo='$resslot'";
 			$rs2=mysql_query($strsql2,$connection);
 			if($rs2)
+			{
 			$cnt2=mysql_affected_rows($connection);
  			
  			if($cnt2)
@@ -110,12 +112,15 @@ else
 					}
 				}
 		}
+	}
+
 		else if 
 	{
 		mysql_select_db("ad_254e48c6f6af81f");
 		$strsql3="SELECT * FROM demo WHERE carNo='$carno' and  crtDate='$resdate'";
 		$rs3=mysql_query($strsql3,$connection);
 		if($rs3)
+		{
 		$cnt3=mysql_affected_rows($connection);
 		if($cnt3)
 		{
@@ -183,6 +188,8 @@ else
 
 		}
 	}
+}
+
 	else
 	{
 		echo "This car number is already reserved on this date at this timing ";	
@@ -194,6 +201,7 @@ else if
 		$strsql5="SELECT * FROM demo WHERE  crtDate='$resdate' and slotNo='$resslot'";
 		$rs5=mysql_query($strsql5,$connection);
 		if($rs5)
+		{
 		$cnt5=mysql_affected_rows($connection);
 		if($cnt5)
 		{
@@ -260,6 +268,8 @@ else if
 			}
 		}
 	}
+}
+
 	else
 	{
 		echo "On this time and date already car is already reserved ";	
@@ -271,6 +281,7 @@ else if
 		$strsql7="SELECT * FROM demo WHERE  carNO='$carno' and crtDate='$resdate' and slotNo='$resslot'";
 		$rs7=mysql_query($strsql7,$connection);
 		if($rs7)
+		{
 		$cnt7=mysql_affected_rows($connection);
  		if($cnt7)
 		{
@@ -334,6 +345,7 @@ else
 		echo "Entry time must be less than exit time and duration must be below 4 hours";
 	}
 }
+}
 }
 }
 else
