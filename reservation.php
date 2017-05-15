@@ -37,8 +37,9 @@ else
 
 	else
 	{
+		
 		$duration=$exit1-$entry1;
-		if($entry1<$exit1 && $duration<=4 && $slot3<=4)
+		if($entry1<$exit1 && $duration<=4)
 		{
     	$query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
        $result=mysql_query($query,$connection);

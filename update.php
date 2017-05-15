@@ -29,54 +29,36 @@ else
 	if($rs)
 	{
  	$cnt=mysql_affected_rows($connection);
- 	}
+ 	
  	if($cnt && $newexit<$oldexit && $newexit>$oldentry)
 	{
 		while($row=mysql_fetch_array($rs))
 		{
 		$query="update demo set Exittime='$newexit' where crtDate='$newdate' and Entrytime='$oldentry' and Exittime='$oldexit' and slotNo='$newslot'";
     	$result=mysql_query($query,$connection);
-    	if($result)
-		{
-			$cnt2=mysql_affected_rows($connection);
- 		}
- 		if($cnt2)
-		{
+    	//if($result)
+		//{
+		//	$cnt2=mysql_affected_rows($connection);
+ 		
+ 		//if($cnt2)
+	//	{
 			
 			echo "your timing is updated successfully" ;
-			$duration=$oldentry-$newexit;
-							if($duration==1)
-							{
-								$res1=$duration*50;
-								echo " Now Your total amount  is ".$res1;
-							}
-							else if($duration==2)
-							{
-								$res2=$duration*50;
-								echo "Now your total amount is ".$res2;
-							}	
-							else if($duration==3)
-							{
-								$res3=$duration*50;
-								echo "Now your total  amount is ".$res3;
-							}
-							else if($duration==4)
-							{
-								$res4=$duration*50;
-								echo " NOw your amount total is ".$res4;
-							}
-							else
-							{
-								echo "Duration must be below 4 hours";
-							}
-		
+		//	$duration=$newexit-$oldentry;
+							
 		}
+	}
+
 		else
 		{
 			echo "Check new exit time.";
 		}
 		}
-	}
+	
+	//else
+	//{
+		//echo "new exit time must be less than old exit time";
+	//}
 
 	else
 	{
