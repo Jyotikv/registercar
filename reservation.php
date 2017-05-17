@@ -3,7 +3,7 @@
 $carno=$_REQUEST['txtcar'];
 $date=$_REQUEST['txtdate'];
 $entry=$_REQUEST['txtfrom'];
-$exit=$_REQUEST['txtto'];
+$exittime=$_REQUEST['txtto'];
 $slot=$_REQUEST['txtslotnum'];
 
 
@@ -59,8 +59,8 @@ else
 								}
 								else
 								{	
-									$duration=$exit-$entry;
-				if($duration==1 && $entry<$exit)
+									$duration=$exittime-$entry;
+				if($duration==1 && $entry<$exittime)
 				{
 					mysql_select_db("ad_254e48c6f6af81f");
 					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
@@ -95,8 +95,8 @@ else
 				}
 				else
 				{
-					$duration=$exit-$entry;
-					if($duration==1 && $entry<$exit)
+					$duration=$exittime-$entry;
+					if($duration==1 && $entry<$exittime)
 					{
 					mysql_select_db("ad_254e48c6f6af81f");
 					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
@@ -127,8 +127,8 @@ else
 		
 			else
 			{
-				$duration=$exit-$entry;
-				if($duration==1 && $entry<$exit)
+				$duration=$exittime-$entry;
+				if($duration==1 && $entry<$exittime)
 				{
 					mysql_select_db("test");
 					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";

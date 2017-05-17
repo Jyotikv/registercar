@@ -1,6 +1,6 @@
 <?php
 $name=$_REQUEST['txtFullname'];
-$email=$_REQUEST['txtemail'];
+//$email=$_REQUEST['txtemail'];
 $phone=$_REQUEST['txtphone'];
 $rfid=$_REQUEST['txtrfid'];
 $password1=$_REQUEST['txtpassword'];
@@ -35,9 +35,9 @@ else
 	}
 		else
 		{
-			if(isset($_POST['txtemail'])==true && empty($_post['txtemail']==false))
+			if(isset($_REQUEST['txtemail'])==true && empty($_REQUEST['txtemail']==false))
 			{
-				$email = $_POST['txtemail'];
+				$email = $_REQUEST['txtemail'];
 				if(filter_var($email,FILTER_VALIDATE_EMAIL)==true)
 				{
 					$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
@@ -53,14 +53,17 @@ else
 			}
 
 		}
+		else
+	{
+		echo "check your email";
+	}
 	}
 	else
 	{
 		echo "check your email";
 	}
-
+	
+}
 
     mysql_close($connection);
-
-}
 ?>

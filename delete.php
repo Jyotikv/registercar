@@ -20,26 +20,47 @@ if(!$connection)
 else 
 {
     mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'";
- 	$rs=mysql_query($strsql,$connection);
-	if($rs)
-	{
+   if($strsql=mysql_query("SELECT * FROM demo WHERE carNo='$carnum2' and crtDate='$date2' and Entrytime='$entry2' and Exittime='$exit2'",$connection));
  	$cnt=mysql_affected_rows($connection);
- 	}
+ 	
  	if($cnt)
 	{
-		$query="delete from demo where carNo='$carnum2'";
-    	$result=mysql_query($query,$connection);
-    	if($rs)
+		if($query=mysql_query("delete from demo where carNo='$carnum2'",$connection));
+    	$cnt2=mysql_affected_rows($connection);
+    	//$result=($query,$connection);
+    	//if($rs)
+		//{
+			
+ 		//}
+ 		if($cnt2)
 		{
-			$cnt=mysql_affected_rows($connection);
- 		}
- 		if($cnt)
+			
+		$ch = curl_init();
+		$user="demoparking2018@gmail.com:Jyoti123.";
+		$receipientno="8867935507";
+		$senderId="TEST SMS";
+		$msgtxt="Authentication successfull...allow";
+		curl_setopt($ch, CURLOPT_URL, "http://api.mVaayoo.com/mvaayooapi/MessageCompose");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+
+		curl_setopt($ch,CURLOPT_POST,1);
+
+		curl_setopt($ch,CURLOPT_POSTFIELDS , "user=$user&senderID=$senderID&receipientno=$receipientno&msgtxt=$msgtxt");
+		$buffer = curl_exec($ch);
+		if(empty($buffer))
 		{
-			while ($row=mysql_fetch_array($rs))
-    		{
-    			echo "your reserved slot has been cancelled successfully" ;
-			}
+			echo "buffer is empty ";
+		}
+		else
+		{
+			echo $buffer;
+			echo "message sent";
+		}
+		curl_close($ch);
+			//while ($row=mysql_fetch_array($rs))
+    		//{
+    			//echo "your reserved slot has been cancelled successfully" ;
+			//}
 		}
 
 		else
