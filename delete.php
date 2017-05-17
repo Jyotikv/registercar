@@ -34,7 +34,7 @@ else
  		//}
  		if($cnt2)
 		{
-			
+			echo "your reserved slot has been cancelled successfully" ;
 		$ch = curl_init();
 		$user="demoparking2018@gmail.com:Jyoti123.";
 		$receipientno="8867935507";

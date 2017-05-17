@@ -1,6 +1,6 @@
 <?php
 $name=$_REQUEST['txtFullname'];
-//$email=$_REQUEST['txtemail'];
+$email=$_REQUEST['txtemail'];
 $phone=$_REQUEST['txtphone'];
 $rfid=$_REQUEST['txtrfid'];
 $password1=$_REQUEST['txtpassword'];
@@ -63,6 +63,7 @@ else
 		echo "check your email";
 	}
 	
+}
 }
 
     mysql_close($connection);
