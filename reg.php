@@ -35,8 +35,13 @@ else
 	}
 		else
 		{
-   			$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
-   			$result=mysql_query($query,$connection);
+			if(isset($_POST['txtemail'])==true && empty($_post['txtemail']==false))
+			{
+				$email = $_POST['txtemail'];
+				if(filter_var($email,FILTER_VALIDATE_EMAIL)==true)
+				{
+					$query="insert into regg values('$name','$email','$phone','$rfid','$password1')";
+   					$result=mysql_query($query,$connection);
 	
 			if(!$result)
     		{
@@ -48,6 +53,12 @@ else
 			}
 
 		}
+	}
+	else
+	{
+		echo "check your email";
+	}
+
 
     mysql_close($connection);
 

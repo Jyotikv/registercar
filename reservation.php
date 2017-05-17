@@ -1,10 +1,10 @@
 <?php
 
 $carno=$_REQUEST['txtcar'];
-$date1=$_REQUEST['txtdate'];
-$entry1=$_REQUEST['txtfrom'];
-$exit1=$_REQUEST['txtto'];
-$slot3=$_REQUEST['txtslotnum'];
+$date=$_REQUEST['txtdate'];
+$entry=$_REQUEST['txtfrom'];
+$exit=$_REQUEST['txtto'];
+$slot=$_REQUEST['txtslotnum'];
 
 
 //connect to mysql
@@ -18,70 +18,143 @@ if(!$connection)
 {
     echo "connection failed";
 }
-else 
-{
-    mysql_select_db("ad_254e48c6f6af81f");
-    $strsql="SELECT * FROM demo WHERE crtDate='$date1' and Entrytime='$entry1' and Exittime='$exit1' and slotNo='$slot3' ";
- 	$rs=mysql_query($strsql,$connection);
-	if($rs)
-	{
- 	$cnt=mysql_affected_rows($connection);
- 	}
- 	if($cnt)
-	{
-		while ($row=mysql_fetch_array($rs))
-    {
-    	echo $row["4"]."already allocated .";
-	}
-	}
-
-	else
-	{
-		
-		$duration=$exit1-$entry1;
-		if($entry1<$exit1 && $duration<=4)
-		{
-    	$query="insert into demo values('$carno','$date1','$entry1','$exit1','$slot3')";
-       $result=mysql_query($query,$connection);
-	 	 if(!$result)
-    {
-       echo "Reservation failed";
-  	}
-    else
-    {
-        echo "Reserved succefully .";
-    }
-     if($duration==1)
-{
-	$res1=$duration*50;
-	echo "Your amount  is".$res1;
-}
-else if($duration==2)
-{
-	$res2=$duration*50;
-	echo "Your amount is".$res2;
-}
-else if($duration==3)
-{
-	$res3=$duration*50;
-	echo "Your amount is".$res3;
-}
-else if($duration==4)
-{
-	$res4=$duration*50;
-	echo "Your amount is".$res4;
-}
 else
 {
-	echo "Duration must be below 4 hours";
-}
+
+	//for($slot=1;$slot<=4;$slot++)
+	//{
+		mysql_select_db("ad_254e48c6f6af81f");
+		$dateres=mysql_query("SELECT * FROM demo WHERE crtDate='$date' ", $connection);
+		if($dateres)
+		{
+ 			$cnt1=mysql_affected_rows($connection);
+ 			if($cnt1)
+ 			{
+ 				mysql_select_db("ad_254e48c6f6af81f");
+				$entryres=mysql_query("SELECT * FROM demo WHERE crtDate='$date' and Entrytime='$entry'" , $connection);
+				if($entryres)
+				{
+					$cnt2=mysql_affected_rows($connection);
+					if($cnt2)
+					{
+						mysql_select_db("ad_254e48c6f6af81f");
+						$slotres=mysql_query("SELECT * FROM demo WHERE crtDate='$date' and Entrytime='$entry' and slotNo='$slot'" , $connection);
+						if($slotres)
+						{
+							$cnt3=mysql_affected_rows($connection);
+							if($cnt3)
+							{
+								echo "Already car is reserved  at this timing";
+							}
+							else
+							{
+							mysql_select_db("ad_254e48c6f6af81f");
+							$carres=mysql_query("SELECT * FROM demo WHERE crtDate='$date' and Entrytime='$entry' and carNo='$carno'",$connection);
+							if($carres)
+							{
+								$cnt4=mysql_affected_rows($connection);
+								if($cnt4)
+								{
+									echo "This  car number is already reserved";
+								}
+								else
+								{	
+									$duration=$exit-$entry;
+				if($duration==1 && $entry<$exit)
+				{
+					mysql_select_db("ad_254e48c6f6af81f");
+					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+       				$result8=mysql_query($query8,$connection);
+	 	 			if(!$result8)
+    				{
+       					echo "Reservation failed";
+  					}
+    				else
+    				{
+        				echo "Reserved succefully ...";
+						echo "your amount is 100";
+					}
+				}
+				else 						
+				{	
+						echo "Sorry ... You can reserv only for one hour";
+				}
+								}
+
+							}
+							else
+							{
+								echo "your car is already reserved???";
+							}
+						}
+					}
+					else
+					{
+						echo "your car is already resevred......";
+					}
+				}
+				else
+				{
+					$duration=$exit-$entry;
+					if($duration==1 && $entry<$exit)
+					{
+					mysql_select_db("ad_254e48c6f6af81f");
+					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+       				$result8=mysql_query($query8,$connection);
+	 	 			if(!$result8)
+    				{
+       					echo "Reservation failed";
+  					}
+    				else
+    				{
+        				echo "Reserved succefully ...";
+						echo "your amount is 100";
+					}
+				}
+				else 						
+				{	
+						echo "Sorry ... You can reserv only for one hour";
+				}
+					
+					
+				}
+			}
+			else
+			{
+				echo "You can't reserv at same timing...";
+			}
+		}
+		
+			else
+			{
+				$duration=$exit-$entry;
+				if($duration==1 && $entry<$exit)
+				{
+					mysql_select_db("test");
+					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+       				$result8=mysql_query($query8,$connection);
+	 	 			if(!$result8)
+    				{
+       					echo "Reservation failed";
+  					}
+    				else
+    				{
+        				echo "Reserved succefully ...";
+						echo "your amount is 100";
+					}
+				}
+				else 						
+				{	
+						echo "Sorry ... You can reserv only for one hour";
+				}
+    			
+			}
+		}
+		else
+		{
+			echo "........";
+		}
 	}
-	else
-	{
-		echo "Entry time must be less than exit time and duration must be below 4 hours";
-	}
-	}
-}
 
 mysql_close($connection);
 ?>
