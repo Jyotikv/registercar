@@ -63,7 +63,7 @@ else
 				if($duration==1 && $entry<$exittime)
 				{
 					mysql_select_db("ad_254e48c6f6af81f");
-					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+					$query8="insert into demo values('$carno','$date','$entry','$exittime','$slot')";
        				$result8=mysql_query($query8,$connection);
 	 	 			if(!$result8)
     				{
@@ -99,7 +99,7 @@ else
 					if($duration==1 && $entry<$exittime)
 					{
 					mysql_select_db("ad_254e48c6f6af81f");
-					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+					$query8="insert into demo values('$carno','$date','$entry','$exittime','$slot')";
        				$result8=mysql_query($query8,$connection);
 	 	 			if(!$result8)
     				{
@@ -131,7 +131,7 @@ else
 				if($duration==1 && $entry<$exittime)
 				{
 					mysql_select_db("test");
-					$query8="insert into demo values('$carno','$date','$entry','$exit','$slot')";
+					$query8="insert into demo values('$carno','$date','$entry','$exittime','$slot')";
        				$result8=mysql_query($query8,$connection);
 	 	 			if(!$result8)
     				{
